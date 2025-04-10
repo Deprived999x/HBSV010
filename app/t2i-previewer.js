@@ -11,35 +11,29 @@ export class T2IPreviewer {
     this.isGenerating = false;
     this.currentPrompt = '';
     
-    // I've prioritized the models in order of reliability based on my testing
+    // Updated model list with your requested models
     this.availableModels = [
       { 
-        id: 'runwayml/stable-diffusion-v1-5', // Moved this to first position as it's most reliable
-        name: 'Stable Diffusion v1.5', 
+        id: 'HiDream-ai/HiDream-I1-Full', 
+        name: 'HiDream I1 Full', 
         status: 'unknown',
-        description: 'Most reliable model - great for initial tests'
+        description: 'High-quality image generation model'
       },
       { 
-        id: 'dataautogpt3/ProteusV0.2', 
-        name: 'Proteus V0.2', 
+        id: 'black-forest-labs/FLUX.1-schnell', 
+        name: 'FLUX.1 Schnell', 
         status: 'unknown',
-        description: 'High quality images with good prompt following'
+        description: 'Fast and efficient image generator'
       },
       { 
-        id: 'cagliostrolab/animagine-xl-3.0', 
-        name: 'Animagine XL 3.0', 
+        id: 'ByteDance/InfiniteYou', 
+        name: 'InfiniteYou', 
         status: 'unknown',
-        description: 'Stylized anime-style images (high quality)'
-      },
-      { 
-        id: 'dreamlike-art/dreamlike-photoreal-2.0', 
-        name: 'Dreamlike Photoreal', 
-        status: 'unknown',
-        description: 'Photorealistic image generation'
+        description: 'ByteDance\'s creative image model'
       }
     ];
     
-    // Use the first model by default (now the more reliable one)
+    // Use the first model by default
     this.selectedModelIndex = 0;
     this.apiUrl = `https://api-inference.huggingface.co/models/${this.availableModels[0].id}`;
     
@@ -720,47 +714,11 @@ export class T2IPreviewer {
     suggestionDiv.innerHTML = `
       <strong>Try these reliable models instead:</strong>
       <ul style="margin-top: 5px; padding-left: 20px;">
-        <li><strong>runwayml/stable-diffusion-v1-5</strong> - Standard reliable model</li>
-        <li><strong>stabilityai/stable-diffusion-xl-base-1.0</strong> - Higher quality images</li> 
-        <li><strong>prompthero/openjourney</strong> - Midjourney-style images</li>
+        <li><strong>HiDream-ai/HiDream-I1-Full</strong> - High-quality image generation model</li>
+        <li><strong>black-forest-labs/FLUX.1-schnell</strong> - Fast and efficient image generator</li> 
+        <li><strong>ByteDance/InfiniteYou</strong> - ByteDance's creative image model</li>
       </ul>
-      <button id="try-reliable-model" style="margin-top: 5px; padding: 3px 8px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;">
-        Use Stable Diffusion v1.5 Instead
-      </button>
     `;
-    
-    // Add event listener for the button
-    setTimeout(() => {
-      const button = document.getElementById('try-reliable-model');
-      if (button) {
-        button.addEventListener('click', () => {
-          // Find Stable Diffusion v1.5 in our models
-          const stableDiffusionIndex = this.availableModels.findIndex(
-            model => model.id === 'runwayml/stable-diffusion-v1-5'
-          );
-          
-          if (stableDiffusionIndex >= 0) {
-            // Select this model if it exists in our list
-            this.selectModel(stableDiffusionIndex);
-            const modelSelect = document.getElementById('t2i-model-select');
-            if (modelSelect) modelSelect.value = stableDiffusionIndex;
-          } else {
-            // Otherwise add it and select it
-            this.availableModels.push({
-              id: 'runwayml/stable-diffusion-v1-5',
-              name: 'Stable Diffusion v1.5',
-              status: 'unknown',
-              description: 'Standard text-to-image model (reliable)'
-            });
-            this.selectModel(this.availableModels.length - 1);
-            this.updateModelSelectionUI();
-          }
-          
-          // Check model status
-          this.checkModelStatus(this.selectedModelIndex);
-        });
-      }
-    }, 0);
   }
 
   checkModelsStatus() {
@@ -773,10 +731,9 @@ export class T2IPreviewer {
   async findValidModels() {
     this.updateStatus('Testing available models...');
     const commonModels = [
-      'runwayml/stable-diffusion-v1-5',
-      'stabilityai/stable-diffusion-xl-base-1.0',
-      'CompVis/stable-diffusion-v1-4',
-      'stabilityai/stable-diffusion-2-1'
+      'HiDream-ai/HiDream-I1-Full',
+      'black-forest-labs/FLUX.1-schnell',
+      'ByteDance/InfiniteYou'
     ];
     const workingModels = [];
     
