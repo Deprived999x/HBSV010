@@ -1,16 +1,24 @@
-// Add your Hugging Face API key to this file
-const API_KEY = "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"; // Your Hugging Face API key
+// Using API credentials for the Human Build System
+const API_KEY = "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"; // Your Hugging Face API key
+const API_USER = "Deprive"; // Your Hugging Face username
 
 // T2I Previewer class that generates images from text prompts
 export class T2IPreviewer {
   constructor() {
     this.container = null;
     this.apiToken = ''; // Will be loaded from default or localStorage
+    this.apiUser = API_USER; // Store the username
     this.isGenerating = false;
     this.currentPrompt = '';
     
-    // Available models list with higher quality models first
+    // I've prioritized the models in order of reliability based on my testing
     this.availableModels = [
+      { 
+        id: 'runwayml/stable-diffusion-v1-5', // Moved this to first position as it's most reliable
+        name: 'Stable Diffusion v1.5', 
+        status: 'unknown',
+        description: 'Most reliable model - great for initial tests'
+      },
       { 
         id: 'dataautogpt3/ProteusV0.2', 
         name: 'Proteus V0.2', 
@@ -28,16 +36,10 @@ export class T2IPreviewer {
         name: 'Dreamlike Photoreal', 
         status: 'unknown',
         description: 'Photorealistic image generation'
-      },
-      { 
-        id: 'runwayml/stable-diffusion-v1-5', 
-        name: 'Stable Diffusion v1.5', 
-        status: 'unknown',
-        description: 'Standard text-to-image model (faster)'
       }
     ];
     
-    // Use the first model by default
+    // Use the first model by default (now the more reliable one)
     this.selectedModelIndex = 0;
     this.apiUrl = `https://api-inference.huggingface.co/models/${this.availableModels[0].id}`;
     
@@ -46,7 +48,7 @@ export class T2IPreviewer {
     this.maxRetries = 3;
     this.apiUnavailable = false; // Track if the API seems completely down
     
-    // Use the provided API token 
+    // Use your provided API token - this will save users from having to enter one
     this.defaultApiToken = API_KEY;
     
     // Check if running locally or on a server
@@ -344,28 +346,107 @@ export class T2IPreviewer {
     }
   }
   
-  async generateImage(prompt) {
-    try {
-        const response = await fetch('https://api-inference.huggingface.co/models/runwayml/stable-diffusion-v1-5', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${API_KEY}`  // Using the API key
-            },
-            body: JSON.stringify({ inputs: prompt }),
-        });
-        
-        if (!response.ok) {
-            console.warn(`API responded with status: ${response.status}`);
-            return null;
+  generateImage(prompt) {
+    if (!prompt) {
+      // Use the stored prompt if one wasn't provided
+      prompt = this.currentPrompt || this.prompt;
+    }
+    
+    if (!prompt) {
+      this.showError("No prompt provided. Please enter a text prompt first.");
+      return Promise.reject("No prompt provided");
+    }
+    
+    // Store the current prompt
+    this.currentPrompt = prompt;
+    
+    // Show status while generating
+    this.isGenerating = true;
+    this.updateStatus("Generating image...");
+    
+    // Get the currently selected model ID
+    const modelId = this.availableModels[this.selectedModelIndex].id;
+    
+    // Update the preview area to show loading state
+    const imageElement = document.getElementById('t2i-image');
+    const placeholder = document.getElementById('t2i-placeholder');
+    
+    if (imageElement) imageElement.classList.add('t2i-hidden');
+    if (placeholder) {
+      placeholder.style.display = 'flex';
+      placeholder.innerHTML = `
+        <div>
+          <div style="margin-bottom: 10px; font-weight: bold;">Generating image...</div>
+          <div style="font-size: 12px; margin-bottom: 15px;">Using model: ${modelId}</div>
+          <div class="loading-spinner" style="margin: 0 auto; width: 30px; height: 30px; border: 3px solid #f3f3f3; border-top: 3px solid #3498db; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+          <style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
+        </div>
+      `;
+    }
+    
+    // Now call the Hugging Face API with YOUR API key that you provided
+    const apiUrl = `https://api-inference.huggingface.co/models/${modelId}`;
+    
+    return fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${API_KEY}`,
+        'Content-Type': 'application/json',
+        'X-User-Agent': `HBS/${this.apiUser}` // Add the username to the request
+      },
+      body: JSON.stringify({ inputs: prompt }),
+    })
+    .then(response => {
+      this.isGenerating = false;
+      
+      if (!response.ok) {
+        if (response.status === 503) {
+          this.updateStatus("Model is loading... this may take a minute", false);
+          // The model is still loading, try again after a delay
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              resolve(this.generateImage(prompt));
+            }, 5000); // 5 second delay for model loading
+          });
         }
         
-        const blob = await response.blob();
-        return URL.createObjectURL(blob);
-    } catch (error) {
-        console.error('Network error when calling Hugging Face API:', error);
-        return null;
-    }
+        throw new Error(`API request failed with status ${response.status}: ${response.statusText}`);
+      }
+      
+      return response.blob();
+    })
+    .then(imageBlob => {
+      // Check if we got a proper image and not an error message in JSON
+      if (imageBlob.type.startsWith('application/json')) {
+        return imageBlob.text().then(text => {
+          const errorData = JSON.parse(text);
+          throw new Error(errorData.error || "Unknown API error");
+        });
+      }
+      
+      // Create URL for the image blob
+      const imageUrl = URL.createObjectURL(imageBlob);
+      
+      // Display the image
+      if (imageElement) {
+        imageElement.onload = () => {
+          imageElement.classList.remove('t2i-hidden');
+          if (placeholder) placeholder.style.display = 'none';
+        };
+        imageElement.src = imageUrl;
+      }
+      
+      this.updateStatus("Image generated successfully!", false);
+      return imageUrl;
+    })
+    .catch(error => {
+      this.isGenerating = false;
+      console.error("Error generating image:", error);
+      this.showError(`Failed to generate image: ${error.message}`);
+      this.updateStatus(`Error: ${error.message}`, true);
+      this.showDirectApiLink(prompt);
+      throw error;
+    });
   }
   
   checkCorsExtension() {
@@ -534,7 +615,8 @@ export class T2IPreviewer {
       const response = await fetch(modelUrl, {
         method: 'HEAD',
         headers: {
-          'Authorization': `Bearer ${this.apiToken}`
+          'Authorization': `Bearer ${this.apiToken}`,
+          'X-User-Agent': `HBS/${this.apiUser}` // Adding username to help with API tracking
         }
       });
       
@@ -569,7 +651,6 @@ export class T2IPreviewer {
     }
   }
   
-  // Add methods to show and clear model errors
   showModelError(modelId, title, message) {
     const modelStatus = document.getElementById('model-status');
     if (!modelStatus) return;
@@ -692,7 +773,10 @@ export class T2IPreviewer {
       try {
         const response = await fetch(`https://api-inference.huggingface.co/models/${modelId}`, {
           method: 'HEAD',
-          headers: { 'Authorization': `Bearer ${this.apiToken}` }
+          headers: { 
+            'Authorization': `Bearer ${this.apiToken}`,
+            'X-User-Agent': `HBS/${this.apiUser}` // Adding username consistently
+          }
         });
         
         if (response.ok || response.status === 503) {
