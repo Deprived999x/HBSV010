@@ -7,14 +7,14 @@ const PROXY_API_URL = 'https://hbs-proxy-function-git-main-matthew-anacletos-pro
 // You can still define the models you want to offer
 const availableModels = [
   {
-    id: 'stabilityai/stable-diffusion-xl-base-1.0', // Example high-quality model
-    name: 'Stable Diffusion XL 1.0',
-    description: 'High-quality image generation model'
+    id: 'black-forest-labs/FLUX.1-schnell', // Keep this one - it works!
+    name: 'FLUX.1 Schnell',
+    description: 'Fast and efficient image generator'
   },
   {
-    id: 'runwayml/stable-diffusion-v1-5', // Example faster model
-    name: 'Stable Diffusion 1.5',
-    description: 'Faster, well-rounded image model'
+    id: 'HiDream-ai/HiDream-I1-Full', // Add HiDream
+    name: 'HiDream I1 Full',
+    description: 'High-quality generation model by HiDream'
   },
    {
     id: 'black-forest-labs/FLUX.1-schnell', // From your original list
