@@ -1,3 +1,6 @@
+// Add your Hugging Face API key to this file
+const API_KEY = "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"; // Your Hugging Face API key
+
 // T2I Previewer class that generates images from text prompts
 export class T2IPreviewer {
   constructor() {
@@ -43,8 +46,8 @@ export class T2IPreviewer {
     this.maxRetries = 3;
     this.apiUnavailable = false; // Track if the API seems completely down
     
-    // Use an API token that works with the free tier
-    this.defaultApiToken = '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';
+    // Use the provided API token 
+    this.defaultApiToken = API_KEY;
     
     // Check if running locally or on a server
     this.isLocalEnvironment = window.location.hostname === 'localhost' || 
@@ -293,7 +296,44 @@ export class T2IPreviewer {
   }
   
   updatePrompt(prompt) {
-    this.currentPrompt = prompt;
+    this.prompt = prompt;
+    
+    if (!prompt || prompt.trim() === '') {
+        this.container.innerHTML = '<div class="t2i-no-prompt">Enter a prompt to see a preview</div>';
+        return;
+    }
+    
+    this.container.innerHTML = '<div class="t2i-loading">Generating preview...</div>';
+    
+    // Try to generate the image with error handling
+    this.generateImage(prompt)
+        .then(imageUrl => {
+            if (imageUrl) {
+                this.container.innerHTML = `
+                    <div class="t2i-result">
+                        <img src="${imageUrl}" alt="Generated preview">
+                        <div class="t2i-prompt-used">${prompt}</div>
+                    </div>
+                `;
+            } else {
+                throw new Error('Failed to generate image');
+            }
+        })
+        .catch(error => {
+            console.error('T2I Preview error:', error);
+            this.container.innerHTML = `
+                <div class="t2i-error">
+                    <p>API connection failed. To use the T2I Preview feature:</p>
+                    <ol>
+                        <li>Make sure you have an internet connection</li>
+                        <li>The Hugging Face API might be temporarily unavailable</li>
+                        <li>This API key might have exceeded its rate limit</li>
+                    </ol>
+                    <p>Prompt that would have been used:</p>
+                    <div class="t2i-prompt-used">${prompt}</div>
+                </div>
+            `;
+        });
   }
   
   updateStatus(message, isError = false) {
@@ -304,166 +344,27 @@ export class T2IPreviewer {
     }
   }
   
-  async generateImage() {
-    if (this.isGenerating) {
-      this.updateStatus('Already generating an image...', false);
-      return;
-    }
-    // Clear previous errors
-    this.clearError();
-    if (!this.apiToken) {
-      this.updateStatus('API token is required', true);
-      return;
-    }
-    if (!this.currentPrompt) {
-      this.updateStatus('No prompt available', true);
-      return;
-    }
-    const generateButton = document.getElementById('t2i-generate');
-    if (generateButton) {
-      generateButton.disabled = true;
-    }
-    this.isGenerating = true;
-    this.updateStatus('Generating image...');
+  async generateImage(prompt) {
     try {
-      // Check the currently selected model status
-      await this.checkModelStatus(this.selectedModelIndex);
-      const model = this.availableModels[this.selectedModelIndex];
-      if (model.status === 'error') {
-        throw new Error(`Model ${model.name} appears to be unavailable. Try another model.`);
-      }
-      // Re-check CORS status before making the request
-      await this.checkCorsExtension();
-      // Implement retry with exponential backoff
-      let response;
-      let retryCount = 0;
-      let retryDelay = 1000; // Start with 1 second delay
-      while (retryCount <= this.maxRetries) {
-        try {
-          // Direct API call to Hugging Face
-          response = await fetch(this.apiUrl, {
+        const response = await fetch('https://api-inference.huggingface.co/models/runwayml/stable-diffusion-v1-5', {
             method: 'POST',
             headers: {
-              'Authorization': `Bearer ${this.apiToken}`,
-              'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${API_KEY}`  // Using the API key
             },
-            body: JSON.stringify({
-              inputs: this.currentPrompt
-            })
-          });
-          // No CORS error if we reached here
-          this.updateCorsStatus(true);
-          // Check for server error (5xx)
-          if (response.status >= 500 && response.status < 600) {
-            // Server error - retry after delay
-            if (retryCount < this.maxRetries) {
-              retryCount++;
-              this.updateStatus(`Server error, retrying (${retryCount}/${this.maxRetries})...`, true);
-              // Wait with exponential backoff
-              await new Promise(resolve => setTimeout(resolve, retryDelay));
-              retryDelay *= 2; // Double the delay for next retry
-              continue; // Try again
-            } else {
-              // Max retries reached - throw error
-              throw new Error(`Server error (${response.status}) after maximum retry attempts`);
-            }
-          }
-          // Break the retry loop if we got a non-5xx response
-          break;
-        } catch (corsError) {
-          // Handle CORS errors
-          if (corsError.message.includes('CORS')) {
-            this.updateCorsStatus(false);
-            this.updateStatus('CORS issue detected...', true);
-            this.useNoCors = true;
-            // Create a direct link that users can click to use the API directly
-            this.showDirectApiLink(this.currentPrompt);
-            // Provide specific instructions about the CORS extension
-            throw new Error('CORS restriction detected. Please ensure your CORS extension is active (toggle it on/off), or use the direct link provided.');
-          } else {
-            throw corsError; // Re-throw other errors
-          }
+            body: JSON.stringify({ inputs: prompt }),
+        });
+        
+        if (!response.ok) {
+            console.warn(`API responded with status: ${response.status}`);
+            return null;
         }
-      }
-      // Process the final response
-      if (!response.ok) {
-        if (response.status === 503) {
-          // Special handling for model loading
-          this.availableModels[this.selectedModelIndex].status = 'loading';
-          this.updateModelStatus();
-          try {
-            const errorData = await response.json();
-            if (errorData.error && errorData.error.includes('loading')) {
-              throw new Error('Model is still loading. This can take a few minutes for the first request. Please try again shortly.');
-            } else {
-              throw new Error(errorData.error || `Status ${response.status}`);
-            }
-          } catch (jsonError) {
-            throw new Error(`Model is still initializing. Please try again in a few minutes.`);
-          }
-        }
-        // Try to parse the error response
-        try {
-          const errorData = await response.json();
-          // Check for token validation errors
-          if (response.status === 401 || response.status === 403) {
-            throw new Error('API token invalid or expired. Please check your token and try again.');
-          } else {
-            throw new Error(errorData.error || `Status ${response.status}`);
-          }
-        } catch (jsonError) {
-          // If can't parse JSON, use status text
-          throw new Error(`Failed to generate image: ${response.statusText || 'Server error'}`);
-        }
-      }
-      // Check if response is JSON (error) or binary (image)
-      const contentType = response.headers.get('Content-Type') || '';
-      if (contentType.includes('application/json')) {
-        // API returned JSON instead of an image - probably an error
-        const data = await response.json();
-        if (data.error) {
-          throw new Error(data.error);
-        }
-      }
-      // Otherwise assume it's an image
-      const blob = await response.blob();
-      const imageUrl = URL.createObjectURL(blob);
-      // Display the image
-      const image = document.getElementById('t2i-image');
-      const placeholder = document.getElementById('t2i-placeholder');
-      if (image && placeholder) {
-        image.onload = () => {
-          image.classList.remove('t2i-hidden');
-          placeholder.classList.add('t2i-hidden');
-        };
-        image.src = imageUrl;
-        this.updateStatus('Image generated');
-      }
+        
+        const blob = await response.blob();
+        return URL.createObjectURL(blob);
     } catch (error) {
-      console.error('Error generating image:', error);
-      // Check if error suggests API is down
-      const isApiDown = error.message.includes('Failed to fetch') || 
-                       error.message.includes('NetworkError') ||
-                       error.message.includes('Server error');
-      if (isApiDown) {
-        this.apiUnavailable = true;
-        this.showApiDownMessage();
-        this.showError('Hugging Face API appears to be down. This is a service issue, not a problem with your setup.');
-      } else if (error.message.includes('CORS')) {
-        this.showError('CORS error detected. Check that your CORS extension is enabled and properly configured. Try toggling it off and on, then try again.');
-      } else if (error.message.includes('API token')) {
-        this.showError('API token invalid or expired. Please re-enter your Hugging Face API token.');
-      } else if (error.message.includes('loading') || error.message.includes('initializing')) {
-        this.showError(error.message + ' Please try again shortly.');
-      } else {
-        this.showError(`Error: ${error.message}`);
-      }
-      this.updateStatus('Failed to generate image', true);
-    } finally {
-      this.isGenerating = false;
-      if (generateButton) {
-        generateButton.disabled = false;
-      }
+        console.error('Network error when calling Hugging Face API:', error);
+        return null;
     }
   }
   
