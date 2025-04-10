@@ -17,9 +17,9 @@ const availableModels = [
     description: 'High-quality generation model by HiDream'
   },
    {
-    id: 'black-forest-labs/FLUX.1-schnell', // From your original list
-    name: 'FLUX.1 Schnell',
-    description: 'Fast and efficient image generator'
+    id: 'black-forest-labs/FLUX.1-dev', // Add FLUX Dev
+    name: 'FLUX.1 Dev',
+    description: 'Development version of the FLUX model'
   },
   // Add other models if your proxy is configured to handle them
   // {
