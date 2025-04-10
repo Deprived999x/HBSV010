@@ -1,5 +1,5 @@
 // Using API credentials for the Human Build System
-const API_KEY = "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"; // Your Hugging Face API key
+const API_KEY = ""; // No default API key - users will need to provide their own
 const API_USER = "Deprive"; // Your Hugging Face username
 
 // T2I Previewer class that generates images from text prompts
@@ -48,7 +48,7 @@ export class T2IPreviewer {
     this.maxRetries = 3;
     this.apiUnavailable = false; // Track if the API seems completely down
     
-    // Use your provided API token - this will save users from having to enter one
+    // No default API token - users will be prompted to enter one
     this.defaultApiToken = API_KEY;
     
     // Check if running locally or on a server
@@ -263,15 +263,22 @@ export class T2IPreviewer {
       }
     }
     
-    // Load saved token if available, otherwise use the default token
+    // Load saved token if available, otherwise we'll have an empty field
     const savedToken = localStorage.getItem('hbs_t2i_token');
     if (savedToken) {
       this.apiToken = savedToken;
       this.updateStatus('API token loaded from storage');
-    } else if (this.defaultApiToken) {
-      this.apiToken = this.defaultApiToken;
-      localStorage.setItem('hbs_t2i_token', this.defaultApiToken);
-      this.updateStatus('Default API token applied');
+    } else {
+      // Show a more visible message prompting for API key
+      this.updateStatus('Please enter your Hugging Face API token', false);
+      const keySection = this.container.querySelector('.api-key-section');
+      if (keySection) {
+        keySection.style.backgroundColor = '#e8f4f8';
+        keySection.style.padding = '10px';
+        keySection.style.borderRadius = '4px';
+        keySection.style.marginBottom = '15px';
+        keySection.style.border = '1px solid #bee5eb';
+      }
     }
     
     // Check models status if we have a token
@@ -390,7 +397,7 @@ export class T2IPreviewer {
     return fetch(apiUrl, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${API_KEY}`,
+        'Authorization': `Bearer ${this.apiToken}`,
         'Content-Type': 'application/json',
         'X-User-Agent': `HBS/${this.apiUser}` // Add the username to the request
       },
@@ -606,7 +613,11 @@ export class T2IPreviewer {
   }
   
   async checkModelStatus(modelIndex) {
-    if (!this.apiToken || modelIndex >= this.availableModels.length) return;
+    if (!this.apiToken) {
+      this.updateStatus('API token needed. Please enter one above.', true);
+      return;
+    }
+    if (modelIndex >= this.availableModels.length) return;
     const model = this.availableModels[modelIndex];
     const modelUrl = `https://api-inference.huggingface.co/models/${model.id}`;
     
