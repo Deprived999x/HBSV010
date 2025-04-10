@@ -699,26 +699,59 @@
         // Load taxonomy data and rules from external files
         async function loadTaxonomyData() {
             try {
-                // Explicitly use the correct file path for each taxonomy group
-                const group1Response = await fetch('./app/data/hbs-taxonomy-g1-r010.json');
+                console.log("Loading taxonomy data...");
+                
+                // Try different possible paths for the data files
+                const possiblePaths = [
+                    './data/',             // Root /data folder
+                    './app/data/',         // /app/data folder
+                    '../data/',            // One level up
+                    './',                  // Same directory
+                    '/HBSV010/data/'       // Absolute path with repo name
+                ];
+                
+                let basePath = null;
+                
+                // First, try to find the correct path
+                for (const path of possiblePaths) {
+                    try {
+                        console.log(`Trying path: ${path}`);
+                        const testResponse = await fetch(`${path}hbs-taxonomy-g1-r010.json`, { method: 'HEAD' });
+                        if (testResponse.ok) {
+                            console.log(`Found working path: ${path}`);
+                            basePath = path;
+                            break;
+                        }
+                    } catch (e) {
+                        console.log(`Path ${path} failed: ${e.message}`);
+                    }
+                }
+                
+                if (!basePath) {
+                    console.error("Could not find data files in any of the expected locations");
+                    throw new Error("Data files not found. Check your repository structure.");
+                }
+                
+                // Now use the detected path to load all files
+                const group1Response = await fetch(`${basePath}hbs-taxonomy-g1-r010.json`);
                 if (!group1Response.ok) {
                     throw new Error(`Failed to load Group 1 data: ${group1Response.status}`);
                 }
                 const group1Data = await group1Response.json();
                 
-                const group2Response = await fetch('./app/data/hbs-taxonomy-g2-r010.json');
+                const group2Response = await fetch(`${basePath}hbs-taxonomy-g2-r010.json`);
                 if (!group2Response.ok) {
                     throw new Error(`Failed to load Group 2 data: ${group2Response.status}`);
                 }
                 const group2Data = await group2Response.json();
                 
-                const group3Response = await fetch('./app/data/hbs-taxonomy-g3-r010.json');
+                const group3Response = await fetch(`${basePath}hbs-taxonomy-g3-r010.json`);
                 if (!group3Response.ok) {
                     throw new Error(`Failed to load Group 3 data: ${group3Response.status}`);
                 }
                 const group3Data = await group3Response.json();
                 
-                const group4Response = await fetch('./app/data/hbs-taxonomy-g4-r010.json');
+                const group4Response = await fetch(`${basePath}hbs-taxonomy-g4-r010.json`);
                 if (!group4Response.ok) {
                     throw new Error(`Failed to load Group 4 data: ${group4Response.status}`);
                 }
@@ -726,7 +759,7 @@
                 
                 // Also load the rules
                 try {
-                    const rulesResponse = await fetch('./app/data/hbs-rules-r010.json');
+                    const rulesResponse = await fetch(`${basePath}hbs-rules-r010.json`);
                     if (rulesResponse.ok) {
                         rules = await rulesResponse.json();
                         console.log(`Loaded ${rules.absoluteRules.length} absolute rules and ${rules.suggestiveRules.length} suggestive rules`);
@@ -752,9 +785,10 @@
                         <strong>Error loading taxonomy data:</strong> ${error.message}<br><br>
                         <strong>Troubleshooting:</strong>
                         <ul>
-                            <li>Verify JSON files exist in the data directory</li>
-                            <li>File path should be: ./app/data/hbs-taxonomy-g1-r010.json</li>
+                            <li>Verify JSON files exist in the correct directory</li>
+                            <li>We tried looking in: ./data/, ./app/data/, ../data/, ./, /HBSV010/data/</li>
                             <li>Check browser console for additional error details</li>
+                            <li>Current URL: ${window.location.href}</li>
                         </ul>
                     </div>
                 `;
@@ -2737,16 +2771,7 @@
             requestAnimationFrame(checkFrame);
         }
 
-        // Stop random generation
-        function stopRandomGeneration() {
-            if (randomTimer) {
-                clearTimeout(randomTimer);
-                randomTimer = null;
-            }
-            isRandomGenerating = false;
-        }
-        
-        // Reset all selections
+        // Fix the syntax error in resetAllSelections function
         function resetAllSelections() {
             // Clear all selections
             Object.keys(selections).forEach(paramId => {
@@ -2763,7 +2788,7 @@
                 delete modifierSelections[paramId];
             });
             
-            // Reset UI
+            // Rest of the function...
             for (let groupNum = 1; groupNum <= 4; groupNum++) {
                 // Hide all params except first in first group
                 if (taxonomyData[groupNum] && taxonomyData[groupNum].parameters) {
