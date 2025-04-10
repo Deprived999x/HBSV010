@@ -11,7 +11,7 @@ export class T2IPreviewer {
     this.isGenerating = false;
     this.currentPrompt = '';
     
-    // Updated model list with your requested models
+    // Updated model list with the requested models
     this.availableModels = [
       { 
         id: 'HiDream-ai/HiDream-I1-Full', 
@@ -710,9 +710,9 @@ export class T2IPreviewer {
       container.appendChild(suggestionDiv);
     }
     
-    // List reliable models that typically work well
+    // List the models you specifically requested
     suggestionDiv.innerHTML = `
-      <strong>Try these reliable models instead:</strong>
+      <strong>Try these models:</strong>
       <ul style="margin-top: 5px; padding-left: 20px;">
         <li><strong>HiDream-ai/HiDream-I1-Full</strong> - High-quality image generation model</li>
         <li><strong>black-forest-labs/FLUX.1-schnell</strong> - Fast and efficient image generator</li> 
