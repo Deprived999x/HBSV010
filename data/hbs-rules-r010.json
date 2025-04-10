@@ -1,0 +1,216 @@
+{
+  "absoluteRules": [
+    {
+      "condition": {
+        "paramId": 20,
+        "paramName": "Hair Density",
+        "optionName": "Bald"
+      },
+      "actions": [
+        {
+          "type": "disable",
+          "paramId": 21,
+          "paramName": "Hair Volume"
+        },
+        {
+          "type": "disable",
+          "paramId": 22,
+          "paramName": "Hair Length"
+        },
+        {
+          "type": "disable",
+          "paramId": 24,
+          "paramName": "Hair Parting"
+        },
+        {
+          "type": "disable",
+          "paramId": 25,
+          "paramName": "Hair Bangs/Fringe"
+        },
+        {
+          "type": "disable",
+          "paramId": 19,
+          "paramName": "Hair Texture"
+        },
+        {
+          "type": "disable",
+          "paramId": 26,
+          "paramName": "Hair Tails/Buns"
+        }
+      ]
+    },
+    {
+      "condition": {
+        "paramId": 22,
+        "paramName": "Hair Length",
+        "optionName": "Buzz Cut"
+      },
+      "actions": [
+        {
+          "type": "disable",
+          "paramId": 24,
+          "paramName": "Hair Parting"
+        },
+        {
+          "type": "disable",
+          "paramId": 25,
+          "paramName": "Hair Bangs/Fringe"
+        },
+        {
+          "type": "disable",
+          "paramId": 26,
+          "paramName": "Hair Tails/Buns"
+        },
+        {
+          "type": "limit",
+          "paramId": 21,
+          "paramName": "Hair Volume",
+          "allowedOptions": ["Flat Volume", "Slight Volume"]
+        }
+      ]
+    },
+    {
+      "condition": {
+        "paramId": 22,
+        "paramName": "Hair Length",
+        "optionName": "Ear Length"
+      },
+      "actions": [
+        {
+          "type": "disableExcept",
+          "paramId": 26,
+          "paramName": "Hair Tails/Buns",
+          "allowedOptions": ["Ponytail"]
+        },
+        {
+          "type": "disableExcept",
+          "paramId": 25,
+          "paramName": "Hair Bangs/Fringe",
+          "allowedOptions": ["Wispy Bangs", "Shaggy Bangs"]
+        }
+      ]
+    },
+    {
+      "condition": {
+        "paramId": 3,
+        "paramName": "Age",
+        "optionName": "Pre-adolescent Child"
+      },
+      "actions": [
+        {
+          "type": "disable",
+          "paramId": 7,
+          "paramName": "Skin Texture",
+          "disabledOptions": ["Line-Detailed", "Textured Mature", "Weather-Worn", "Scarred Character"]
+        }
+      ]
+    },
+    {
+      "condition": {
+        "paramId": 1,
+        "paramName": "Gender",
+        "optionName": "Identify as female"
+      },
+      "actions": [
+        {
+          "type": "disable",
+          "paramId": 18,
+          "paramName": "Facial Hair"
+        }
+      ]
+    }
+  ],
+  
+  "suggestiveRules": [
+    {
+      "condition": {
+        "paramId": 1,
+        "paramName": "Gender",
+        "optionName": "Identify as female"
+      },
+      "suggestions": [
+        {
+          "paramId": 4,
+          "paramName": "Build",
+          "suggestedOptions": ["Slender", "Rectangle", "Inverted-Triangle", "Pear", "Hourglass", "Apple", "Curvy"]
+        },
+        {
+          "paramId": 19,
+          "paramName": "Hair Texture",
+          "suggestedOptions": ["Straight", "Wavy", "Curly"]
+        }
+      ]
+    },
+    {
+      "condition": {
+        "paramId": 1,
+        "paramName": "Gender",
+        "optionName": "Identify as male"
+      },
+      "suggestions": [
+        {
+          "paramId": 4,
+          "paramName": "Build",
+          "suggestedOptions": ["Lean", "Rectangle", "V-Shaped", "Athletic", "Muscular", "Stocky", "Heavyset"]
+        }
+      ]
+    },
+    {
+      "condition": {
+        "paramId": 2,
+        "paramName": "Visual Heritage",
+        "optionName": "European Heritage"
+      },
+      "suggestions": [
+        {
+          "paramId": 6,
+          "paramName": "Skin Tone",
+          "suggestedOptions": ["Very Fair", "Fair", "Light"]
+        },
+        {
+          "paramId": 19,
+          "paramName": "Hair Texture",
+          "suggestedOptions": ["Straight", "Wavy", "Curly"]
+        }
+      ]
+    },
+    {
+      "condition": {
+        "paramId": 2,
+        "paramName": "Visual Heritage",
+        "optionName": "African Heritage"
+      },
+      "suggestions": [
+        {
+          "paramId": 6,
+          "paramName": "Skin Tone",
+          "suggestedOptions": ["Medium", "Tan", "Deep", "Very Deep"]
+        },
+        {
+          "paramId": 19,
+          "paramName": "Hair Texture",
+          "suggestedOptions": ["Coily", "Kinky", "Afro", "Curly"]
+        }
+      ]
+    },
+    {
+      "condition": {
+        "paramId": 2,
+        "paramName": "Visual Heritage",
+        "optionName": "East Asian Heritage"
+      },
+      "suggestions": [
+        {
+          "paramId": 6,
+          "paramName": "Skin Tone",
+          "suggestedOptions": ["Fair", "Light", "Medium"]
+        },
+        {
+          "paramId": 19,
+          "paramName": "Hair Texture",
+          "suggestedOptions": ["Straight"]
+        }
+      ]
+    }
+  ]
+}

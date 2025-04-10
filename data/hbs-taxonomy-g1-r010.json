@@ -1,0 +1,393 @@
+{
+    "group": "Basic Physical & Skin Characteristics",
+    "parameters": [
+      {
+        "id": 1,
+        "name": "Gender",
+        "status": "Essential",
+        "description": "Primary gender classification for character creation",
+        "options": [
+          {
+            "name": "Identify as male",
+            "visual": "Masculine-presenting gender identity.",
+            "as_seen_in": "Common across all global populations."
+          },
+          {
+            "name": "Identify as female",
+            "visual": "Feminine-presenting gender identity.",
+            "as_seen_in": "Common across all global populations."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Visual Heritage",
+        "status": "Essential",
+        "description": "Observable ancestry category based on physical traits",
+        "options": [
+          {
+            "name": "European Heritage",
+            "visual": "Lighter skin, varied eye and hair colors, narrow facial features.",
+            "as_seen_in": "Populations across Europe and European diaspora."
+          },
+          {
+            "name": "African Heritage",
+            "visual": "Darker skin tones, broader nose, fuller lips, coiled hair textures.",
+            "as_seen_in": "Sub-Saharan Africa, Afro-Caribbean, and African-American populations."
+          },
+          {
+            "name": "East Asian Heritage",
+            "visual": "Straight black hair, epicanthic eye folds, light to medium skin tones.",
+            "as_seen_in": "Chinese, Korean, Japanese populations."
+          },
+          {
+            "name": "South Asian Heritage",
+            "visual": "Medium to dark skin tones, dark hair, diverse nose and eye shapes.",
+            "as_seen_in": "Indian subcontinent including India, Pakistan, Bangladesh, Sri Lanka."
+          },
+          {
+            "name": "Southeast Asian Heritage",
+            "visual": "Medium-toned skin, rounder face, dark straight hair.",
+            "as_seen_in": "Filipino, Thai, Vietnamese, Indonesian populations."
+          },
+          {
+            "name": "Native American Heritage",
+            "visual": "Medium to light-brown skin, straight dark hair, high cheekbones.",
+            "as_seen_in": "Indigenous peoples of North, Central, and South America."
+          },
+          {
+            "name": "Latino Heritage",
+            "visual": "Mixed ancestry with a wide range of features from European, Indigenous, and African heritage.",
+            "as_seen_in": "Latin American populations, including Central and South America."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Age",
+        "status": "Essential",
+        "description": "Developmental life stage estimation based on visual maturity",
+        "options": [
+          {
+            "name": "Pre-adolescent Child",
+            "visual": "Small stature, soft rounded features, high fat-to-muscle ratio.",
+            "as_seen_in": "Children typically ages 0–12."
+          },
+          {
+            "name": "Teenage",
+            "visual": "Rapid growth stage, transitional facial features, hormonal changes visible.",
+            "as_seen_in": "Adolescents typically ages 13–19."
+          },
+          {
+            "name": "Youthful Adult",
+            "visual": "Fully developed physical features, smooth skin, high vitality.",
+            "as_seen_in": "Young adults typically ages 20–30."
+          },
+          {
+            "name": "Mature Adult",
+            "visual": "Subtle signs of aging, increased muscle and bone structure definition.",
+            "as_seen_in": "Adults typically ages 30–45."
+          },
+          {
+            "name": "Middle-Aged",
+            "visual": "Prominent aging markers, reduced skin elasticity, deepened features.",
+            "as_seen_in": "Adults typically ages 45–60."
+          },
+          {
+            "name": "Elderly-Senior",
+            "visual": "Wrinkled skin, visible muscle loss, bone prominence.",
+            "as_seen_in": "Adults 60+."
+          }
+        ],
+        "modifiers": {
+          "age_position": [
+            {
+              "name": "None (default)",
+              "visual": "Standard expression of the age category.",
+              "as_seen_in": "Typical manifestation of the selected age."
+            },
+            {
+              "name": "Early",
+              "visual": "Beginning phase of the age category.",
+              "as_seen_in": "Earlier manifestation of the selected age."
+            },
+            {
+              "name": "Mid",
+              "visual": "Middle phase of the age category.",
+              "as_seen_in": "Average manifestation of the selected age."
+            },
+            {
+              "name": "Late",
+              "visual": "Final phase of the age category.",
+              "as_seen_in": "Later manifestation of the selected age."
+            }
+          ]
+        }
+      },
+      {
+        "id": 4,
+        "name": "Build",
+        "status": "Essential",
+        "description": "Overall body shape and mass distribution",
+        "options": [
+          {
+            "name": "Slender",
+            "visual": "Narrow frame with minimal body mass.",
+            "as_seen_in": "Common across all populations, typically with lower body fat percentage."
+          },
+          {
+            "name": "Rectangle",
+            "visual": "Straight vertical silhouette with minimal waist definition.",
+            "as_seen_in": "Common among both male and female bodies."
+          },
+          {
+            "name": "Inverted-Triangle",
+            "visual": "Broad shoulders tapering to a narrower waist and hips.",
+            "as_seen_in": "Often seen in mesomorphic male builds."
+          },
+          {
+            "name": "Pear",
+            "visual": "Narrow upper body with broader hips and thighs.",
+            "as_seen_in": "Often seen in endomorphic female builds."
+          },
+          {
+            "name": "Hourglass",
+            "visual": "Balanced bust and hip width with a narrow waist.",
+            "as_seen_in": "Frequently idealized in fashion and fitness models."
+          },
+          {
+            "name": "Apple",
+            "visual": "Rounded midsection with less waist definition.",
+            "as_seen_in": "Seen across all genders, especially in middle-aged individuals."
+          },
+          {
+            "name": "Curvy",
+            "visual": "Rounded contours with emphasis on bust, hips, and thighs.",
+            "as_seen_in": "Often seen in fuller female body types."
+          },
+          {
+            "name": "V-Shaped",
+            "visual": "Broad upper torso narrowing to the waist.",
+            "as_seen_in": "Common in athletic males."
+          },
+          {
+            "name": "Athletic",
+            "visual": "Muscular build with defined structure and minimal fat.",
+            "as_seen_in": "Seen in individuals engaged in regular training or sports."
+          },
+          {
+            "name": "Muscular",
+            "visual": "High muscle mass, prominent definition.",
+            "as_seen_in": "Bodybuilders, athletes."
+          },
+          {
+            "name": "Stocky",
+            "visual": "Shorter, broad body with thick limbs.",
+            "as_seen_in": "Often seen in power athletes."
+          },
+          {
+            "name": "Heavyset",
+            "visual": "Wide, solid frame with higher fat mass.",
+            "as_seen_in": "Common in endomorphic types."
+          },
+          {
+            "name": "Lean",
+            "visual": "Thin but toned, low fat with some muscle definition.",
+            "as_seen_in": "Endurance athletes, dancers."
+          }
+        ],
+        "modifiers": {
+          "build_intensity": [
+            {
+              "name": "None (default)",
+              "visual": "Standard expression of the build characteristics.",
+              "as_seen_in": "Typical manifestation of the selected build."
+            },
+            {
+              "name": "Slightly",
+              "visual": "Mild expression of the build characteristics.",
+              "as_seen_in": "Subtle manifestation of the selected build."
+            },
+            {
+              "name": "Moderately",
+              "visual": "Clear expression of the build characteristics.",
+              "as_seen_in": "Noticeable manifestation of the selected build."
+            },
+            {
+              "name": "Notably",
+              "visual": "Strong expression of the build characteristics.",
+              "as_seen_in": "Prominent manifestation of the selected build."
+            },
+            {
+              "name": "Extremely",
+              "visual": "Maximum expression of the build characteristics.",
+              "as_seen_in": "Extreme manifestation of the selected build."
+            }
+          ]
+        }
+      },
+      {
+        "id": 5,
+        "name": "Height",
+        "status": "Essential",
+        "description": "Vertical stature relative to gender and heritage norms",
+        "options": [
+          {
+            "name": "Very Short",
+            "visual": "Noticeably below average height for gender and heritage.",
+            "as_seen_in": "Adults below the 5th percentile of regional height charts."
+          },
+          {
+            "name": "Short",
+            "visual": "Below average stature with proportional limbs.",
+            "as_seen_in": "Adults in the 5th–25th percentile range."
+          },
+          {
+            "name": "Average",
+            "visual": "Median height range relative to gender and heritage.",
+            "as_seen_in": "Most adult populations globally."
+          },
+          {
+            "name": "Tall",
+            "visual": "Above average height with longer limbs.",
+            "as_seen_in": "Adults in the 75th–95th percentile."
+          },
+          {
+            "name": "Very Tall",
+            "visual": "Exceptional height beyond typical regional averages.",
+            "as_seen_in": "Adults above the 95th percentile in global populations."
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Skin Tone",
+        "status": "Essential",
+        "description": "Observable pigmentation range independent of lighting or styling",
+        "options": [
+          {
+            "name": "Very Fair",
+            "visual": "Extremely pale skin, often with visible pink or blue undertones.",
+            "as_seen_in": "Common among Northern European populations and individuals with albinism."
+          },
+          {
+            "name": "Fair",
+            "visual": "Light skin with subtle pink, yellow, or neutral undertones.",
+            "as_seen_in": "Often seen in Central European and East Asian heritage groups."
+          },
+          {
+            "name": "Light",
+            "visual": "Beige-toned skin with golden or neutral undertones.",
+            "as_seen_in": "Typical among Southern European, Middle Eastern, and mixed-heritage individuals."
+          },
+          {
+            "name": "Medium",
+            "visual": "Balanced brown skin with no dominant undertone.",
+            "as_seen_in": "Common across Southeast Asian, Latino, and Native American populations."
+          },
+          {
+            "name": "Tan",
+            "visual": "Warm brown skin with sun-reactive pigmentation.",
+            "as_seen_in": "Frequently seen in Mediterranean and South American descent."
+          },
+          {
+            "name": "Deep",
+            "visual": "Dark brown skin with higher melanin density.",
+            "as_seen_in": "Typically found in Sub-Saharan African, Afro-Caribbean, and South Indian heritage."
+          },
+          {
+            "name": "Very Deep",
+            "visual": "Near-black skin, sometimes with red, blue, or violet undertones.",
+            "as_seen_in": "Common among Central African and Nilotic populations, and some Aboriginal Australian lineages."
+          }
+        ],
+        "modifiers": {
+          "skin_tone_intensity": [
+            {
+              "name": "None (default)",
+              "visual": "Standard tone of the skin color.",
+              "as_seen_in": "Typical expression of the selected skin tone."
+            },
+            {
+              "name": "Light",
+              "visual": "Lighter variation of the skin tone.",
+              "as_seen_in": "Paler expression of the selected skin tone."
+            },
+            {
+              "name": "Rich",
+              "visual": "More saturated variation of the skin tone.",
+              "as_seen_in": "Vibrant expression of the selected skin tone."
+            },
+            {
+              "name": "Deep",
+              "visual": "Darker variation of the skin tone.",
+              "as_seen_in": "More intense expression of the selected skin tone."
+            }
+          ]
+        }
+      },
+      {
+        "id": 7,
+        "name": "Skin Texture",
+        "status": "Essential",
+        "description": "Surface quality and condition of skin that affects visual appearance and perceived age",
+        "options": [
+          {
+            "name": "Fine-Pored",
+            "visual": "Smooth with minimally visible pores and even surface.",
+            "as_seen_in": "Naturally youthful or well-maintained skin."
+          },
+          {
+            "name": "Normal Textured",
+            "visual": "Balanced texture with visible pores and natural variations.",
+            "as_seen_in": "Typical healthy adult skin."
+          },
+          {
+            "name": "Weather-Worn",
+            "visual": "Slightly roughened texture from environmental exposure.",
+            "as_seen_in": "Outdoor workers, sailors, farmers."
+          },
+          {
+            "name": "Line-Detailed",
+            "visual": "Natural fine lines that add character without appearing aged.",
+            "as_seen_in": "Expressive faces, mature adults."
+          },
+          {
+            "name": "Textured Mature",
+            "visual": "Visible pores, fine wrinkles, and natural aging patterns.",
+            "as_seen_in": "Middle-aged to elderly individuals."
+          },
+          {
+            "name": "Scarred Character",
+            "visual": "Distinctive marking patterns that add uniqueness.",
+            "as_seen_in": "Various life experiences, certain professions."
+          }
+        ],
+        "modifiers": {
+          "skin_texture_visibility": [
+            {
+              "name": "None (default)",
+              "visual": "Standard visibility of the skin texture.",
+              "as_seen_in": "Typical manifestation of the selected texture."
+            },
+            {
+              "name": "Subtle",
+              "visual": "Minimally noticeable skin texture characteristics.",
+              "as_seen_in": "Understated manifestation of the selected texture."
+            },
+            {
+              "name": "Noticeable",
+              "visual": "Clearly visible skin texture characteristics.",
+              "as_seen_in": "Apparent manifestation of the selected texture."
+            },
+            {
+              "name": "Prominent",
+              "visual": "Highly visible skin texture characteristics.",
+              "as_seen_in": "Striking manifestation of the selected texture."
+            }
+          ]
+        }
+      }
+    ]
+  }
+  

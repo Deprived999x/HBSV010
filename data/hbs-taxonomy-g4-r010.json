@@ -1,0 +1,572 @@
+{
+  "group": "Hair",
+  "parameters": [
+      {
+          "id": 19,
+          "name": "Hair Texture",
+          "status": "Essential parameter",
+          "description": "Describes the natural surface appearance and feel of individual hair strands",
+          "options": [
+              {
+                  "name": "Straight",
+                  "visual": "Lacking any natural bends or curves.",
+                  "as_seen_in": "East Asian populations, straight-haired individuals across all ethnicities."
+              },
+              {
+                  "name": "Wavy",
+                  "visual": "Characterized by gentle \"S\" shaped curves from root to tip.",
+                  "as_seen_in": "Mediterranean populations, wavy-haired individuals across all ethnicities."
+              },
+              {
+                  "name": "Curly",
+                  "visual": "Formed in defined spirals or ringlets.",
+                  "as_seen_in": "Various populations globally, particularly common in certain European and Middle Eastern regions."
+              },
+              {
+                  "name": "Coily",
+                  "visual": "Manifesting tight, spring-like formations, often with a zig-zag pattern.",
+                  "as_seen_in": "African populations, African-descended populations worldwide."
+              },
+              {
+                  "name": "Kinky",
+                  "visual": "Displaying very tight, angular coils in a defined zig-zag pattern.",
+                  "as_seen_in": "African populations, African-descended populations worldwide."
+              },
+              {
+                  "name": "Afro",
+                  "visual": "Dense, voluminous growth of tightly coiled hair extending outward from the scalp in a rounded shape.",
+                  "as_seen_in": "African populations, African-descended populations worldwide, iconic cultural hairstyle."
+              }
+          ],
+          "modifiers": {
+              "quality": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard texture quality.",
+                      "as_seen_in": "Typical hair appearance."
+                  },
+                  {
+                      "name": "Silky",
+                      "visual": "Extremely smooth with high shine.",
+                      "as_seen_in": "Lustrous, flowing hair."
+                  },
+                  {
+                      "name": "Coarse",
+                      "visual": "Thicker individual strands with rougher texture.",
+                      "as_seen_in": "Robust, textured hair."
+                  },
+                  {
+                      "name": "Fine",
+                      "visual": "Thinner individual strands with delicate texture.",
+                      "as_seen_in": "Lightweight, subtle hair."
+                  },
+                  {
+                      "name": "Smooth",
+                      "visual": "Even texture with reduced friction.",
+                      "as_seen_in": "Sleek, streamlined hair."
+                  },
+                  {
+                      "name": "Glossy",
+                      "visual": "High reflectivity with polished appearance.",
+                      "as_seen_in": "Shiny, reflective hair."
+                  },
+                  {
+                      "name": "Shiny",
+                      "visual": "Light-reflecting with vibrant appearance.",
+                      "as_seen_in": "Luminous, radiant hair."
+                  },
+                  {
+                      "name": "Dry",
+                      "visual": "Reduced moisture with matte appearance.",
+                      "as_seen_in": "Non-reflective, absorbent hair."
+                  },
+                  {
+                      "name": "Soft",
+                      "visual": "Gentle texture with pliable quality.",
+                      "as_seen_in": "Touchable, flowing hair."
+                  }
+              ]
+          }
+      },
+      {
+          "id": 20,
+          "name": "Hair Density",
+          "status": "Essential parameter",
+          "description": "Quantifies the thickness of the hair by measuring the number of strands present on the head",
+          "options": [
+              {
+                  "name": "Bald",
+                  "visual": "No visible hair or minimal hair on the scalp.",
+                  "as_seen_in": "Natural hair loss patterns, intentionally shaved heads, certain cultural and fashion styles."
+              },
+              {
+                  "name": "Fine Density",
+                  "visual": "Thin, with fewer strands per square inch.",
+                  "as_seen_in": "Delicate hair appearances, subtle hair presence."
+              },
+              {
+                  "name": "Medium Density",
+                  "visual": "Average thickness, possessing a moderate amount of strands.",
+                  "as_seen_in": "Balanced hair volume, typical hair presentations."
+              },
+              {
+                  "name": "Thick Density",
+                  "visual": "Dense, with a high concentration of strands per square inch.",
+                  "as_seen_in": "Voluminous hair presentations, substantial hair appearance."
+              }
+          ]
+      },
+      {
+          "id": 21,
+          "name": "Hair Volume",
+          "status": "Essential parameter",
+          "description": "Indicates the degree of fullness and body of a hairstyle",
+          "options": [
+              {
+                  "name": "Flat Volume",
+                  "visual": "Lying close to the head with minimal lift.",
+                  "as_seen_in": "Sleek styles, minimalist hair presentations."
+              },
+              {
+                  "name": "Slight Volume",
+                  "visual": "Exhibiting a small amount of lift and body.",
+                  "as_seen_in": "Natural casual looks, subtle styling."
+              },
+              {
+                  "name": "Medium Volume",
+                  "visual": "Representing a moderate amount of fullness.",
+                  "as_seen_in": "Balanced hair styling, everyday presentations."
+              },
+              {
+                  "name": "High Volume",
+                  "visual": "Displaying significant lift and body.",
+                  "as_seen_in": "Dramatic styling, statement hairstyles."
+              },
+              {
+                  "name": "Voluminous",
+                  "visual": "Achieving an exceptionally full and puffy aesthetic.",
+                  "as_seen_in": "Editorial looks, extravagant styling."
+              }
+          ]
+      },
+      {
+          "id": 22,
+          "name": "Hair Length",
+          "status": "Essential parameter",
+          "description": "Indicates the distance from the top of the head to the end of the hair",
+          "options": [
+              {
+                  "name": "Buzz Cut",
+                  "visual": "Extremely short.",
+                  "as_seen_in": "Military styling, minimalist appearances."
+              },
+              {
+                  "name": "Ear Length",
+                  "visual": "Approximately reaching the ears.",
+                  "as_seen_in": "Classic short styles, cropped looks."
+              },
+              {
+                  "name": "Chin Length",
+                  "visual": "Approximately reaching the chin.",
+                  "as_seen_in": "Bob cuts, structured short hairstyles."
+              },
+              {
+                  "name": "Shoulder Length",
+                  "visual": "Approximately reaching the shoulders.",
+                  "as_seen_in": "Medium hairstyles, versatile cuts."
+              },
+              {
+                  "name": "Mid-Back Length",
+                  "visual": "Approximately reaching halfway down the back.",
+                  "as_seen_in": "Long hairstyles, flowing presentations."
+              },
+              {
+                  "name": "Waist Length",
+                  "visual": "Approximately reaching the waist.",
+                  "as_seen_in": "Extra-long styling, dramatic hair presentations."
+              },
+              {
+                  "name": "Hip Length",
+                  "visual": "Approximately reaching the hips.",
+                  "as_seen_in": "Extremely long hair, statement length appearances."
+              }
+          ]
+      },
+      {
+          "id": 23,
+          "name": "Hair Color",
+          "status": "Essential parameter",
+          "description": "Denotes what the dominant shade of the hair is",
+          "options": [
+              {
+                  "name": "Blonde",
+                  "variants": [
+                      {
+                          "name": "Light Blonde",
+                          "visual": "Very pale.",
+                          "as_seen_in": "Nordic appearances, platinum styling."
+                      },
+                      {
+                          "name": "Golden Blonde",
+                          "visual": "Warm and yellow-toned.",
+                          "as_seen_in": "Sun-kissed looks, honey-colored styling."
+                      },
+                      {
+                          "name": "Strawberry Blonde",
+                          "visual": "Reddish-blonde.",
+                          "as_seen_in": "Copper-tinted blonde, warm pale red tones."
+                      },
+                      {
+                          "name": "Medium Blonde",
+                          "visual": "Neutral.",
+                          "as_seen_in": "Classic blonde appearances, balanced light tones."
+                      },
+                      {
+                          "name": "Ash Blonde",
+                          "visual": "Cool and silver or gray-toned.",
+                          "as_seen_in": "Modern cool styling, muted blonde presentations."
+                      },
+                      {
+                          "name": "Dark Blonde",
+                          "visual": "Deep and rich.",
+                          "as_seen_in": "Sandy colorations, deep golden tones."
+                      }
+                  ]
+              },
+              {
+                  "name": "Red",
+                  "variants": [
+                      {
+                          "name": "Bright Red",
+                          "visual": "Vivid and intense.",
+                          "as_seen_in": "Statement red styling, vibrant colorations."
+                      },
+                      {
+                          "name": "Auburn",
+                          "visual": "Reddish-brown with warm undertones.",
+                          "as_seen_in": "Natural redhead appearances, rich red-brown blends."
+                      },
+                      {
+                          "name": "Deep Red",
+                          "visual": "Rich and dark.",
+                          "as_seen_in": "Burgundy shades, wine-colored styling."
+                      }
+                  ]
+              },
+              {
+                  "name": "Gray/White",
+                  "variants": [
+                      {
+                          "name": "White",
+                          "visual": "Pure, lacking pigment.",
+                          "as_seen_in": "Silver hair styling, platinum appearances."
+                      },
+                      {
+                          "name": "Gray",
+                          "visual": "Mixed with pigmented strands.",
+                          "as_seen_in": "Natural aging, silver-toned presentations."
+                      },
+                      {
+                          "name": "Salt and Pepper",
+                          "visual": "Varied mixture of gray and pigmented strands.",
+                          "as_seen_in": "Distinguished appearances, mature styling."
+                      }
+                  ]
+              },
+              {
+                  "name": "Brown",
+                  "variants": [
+                      {
+                          "name": "Light Brown",
+                          "visual": "Pale.",
+                          "as_seen_in": "Soft brunette looks, caramel tones."
+                      },
+                      {
+                          "name": "Golden Brown",
+                          "visual": "Warm and golden-toned.",
+                          "as_seen_in": "Honey-brown coloration, sun-touched brunette."
+                      },
+                      {
+                          "name": "Ash Brown",
+                          "visual": "Cool and silver or gray-toned.",
+                          "as_seen_in": "Muted brown styling, cool-toned brunette."
+                      },
+                      {
+                          "name": "Medium Brown",
+                          "visual": "Neutral.",
+                          "as_seen_in": "Classic brunette appearances, standard brown tones."
+                      },
+                      {
+                          "name": "Deep Brown",
+                          "visual": "Rich and dark.",
+                          "as_seen_in": "Espresso coloration, dark chocolate tones."
+                      }
+                  ]
+              },
+              {
+                  "name": "Black",
+                  "variants": [
+                      {
+                          "name": "Soft Black",
+                          "visual": "With a subtle sheen.",
+                          "as_seen_in": "Natural black hair, blue-black reflections."
+                      },
+                      {
+                          "name": "Deep Black",
+                          "visual": "Rich and dark.",
+                          "as_seen_in": "Intense dark styling, statement black presentations."
+                      }
+                  ]
+              }
+          ],
+          "modifiers": {
+              "tone_shade": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard tone/shade of hair color.",
+                      "as_seen_in": "Typical expression of the selected color."
+                  },
+                  {
+                      "name": "Light",
+                      "visual": "Lighter variation of hair color.",
+                      "as_seen_in": "Paler expression of the selected color."
+                  },
+                  {
+                      "name": "Medium",
+                      "visual": "Balanced tone/shade of hair color.",
+                      "as_seen_in": "Average expression of the selected color."
+                  },
+                  {
+                      "name": "Deep",
+                      "visual": "Darker variation of hair color.",
+                      "as_seen_in": "More intense expression of the selected color."
+                  }
+              ]
+          }
+      },
+      {
+          "id": 24,
+          "name": "Hair Parting",
+          "status": "Optional parameter (depends on hair length/style)",
+          "description": "Specifies positioning of the line where the hair divides on the head",
+          "options": [
+              {
+                  "name": "Center Part",
+                  "visual": "Divided evenly down the middle.",
+                  "as_seen_in": "Symmetrical styling, balanced presentations."
+              },
+              {
+                  "name": "Side Part",
+                  "visual": "Divided to one side, creating asymmetry.",
+                  "as_seen_in": "Classic styling, professional appearances."
+              },
+              {
+                  "name": "Deep Side Part",
+                  "visual": "Parted dramatically to one side.",
+                  "as_seen_in": "Dramatic styling, vintage-inspired looks."
+              },
+              {
+                  "name": "Zigzag Part",
+                  "visual": "Parted in a zigzag pattern.",
+                  "as_seen_in": "Creative styling, textural interest."
+              },
+              {
+                  "name": "No Part",
+                  "visual": "Without a defined division.",
+                  "as_seen_in": "Tousled styling, casual appearances."
+              }
+          ]
+      },
+      {
+          "id": 25,
+          "name": "Hair Bangs/Fringe",
+          "status": "Optional parameter (depends on hair length/style)",
+          "description": "Specifies hair that is cut short and falling across the forehead",
+          "options": [
+              {
+                  "name": "None",
+                  "visual": "No bangs or fringe present.",
+                  "as_seen_in": "Open forehead styling, minimalist appearances."
+              },
+              {
+                  "name": "Blunt Bangs",
+                  "visual": "Cut straight across, typically at eyebrow level.",
+                  "as_seen_in": "Graphic styling, bold hair statements."
+              },
+              {
+                  "name": "Wispy Bangs",
+                  "visual": "Thinned with soft edges that partially reveal the forehead.",
+                  "as_seen_in": "Delicate styling, subtle framing."
+              },
+              {
+                  "name": "Shaggy Bangs",
+                  "visual": "Textured and layered, blending into the rest of the hair.",
+                  "as_seen_in": "Casual styling, effortless appearances."
+              },
+              {
+                  "name": "Side-Swept Bangs",
+                  "visual": "Styled to sweep across the forehead, typically covering one side.",
+                  "as_seen_in": "Asymmetrical styling, elegant framing."
+              }
+          ]
+      },
+      {
+          "id": 26,
+          "name": "Hair Tails/Buns",
+          "status": "Optional parameter (depends on hair length/style)",
+          "description": "Specifies the way the hair is styled and positioned",
+          "options": [
+              {
+                  "name": "None",
+                  "visual": "Hair left loose or styled without tails or buns.",
+                  "as_seen_in": "Free-flowing hairstyles, natural appearances."
+              },
+              {
+                  "name": "Ponytail",
+                  "visual": "Gathered and secured.",
+                  "as_seen_in": "Practical styling, athletic appearances."
+              },
+              {
+                  "name": "High Ponytail",
+                  "visual": "At the crown of the head.",
+                  "as_seen_in": "Youthful styling, energetic presentations."
+              },
+              {
+                  "name": "Low Ponytail",
+                  "visual": "At the nape of the neck.",
+                  "as_seen_in": "Elegant styling, refined appearances."
+              },
+              {
+                  "name": "Side Ponytail",
+                  "visual": "On one side of the head.",
+                  "as_seen_in": "Asymmetrical styling, playful presentations."
+              },
+              {
+                  "name": "Pigtails",
+                  "visual": "Two sections styled into two tails.",
+                  "as_seen_in": "Playful styling, youthful presentations."
+              },
+              {
+                  "name": "Classic Bun",
+                  "visual": "Twisted into a circular coil and secured at the back of the head.",
+                  "as_seen_in": "Traditional styling, polished presentations."
+              },
+              {
+                  "name": "Messy Bun",
+                  "visual": "Loosely twisted in an intentionally casual style.",
+                  "as_seen_in": "Relaxed styling, effortless appearances."
+              },
+              {
+                  "name": "Top Knot",
+                  "visual": "High on the head.",
+                  "as_seen_in": "Contemporary styling, fashion-forward looks."
+              },
+              {
+                  "name": "Chignon",
+                  "visual": "Low and smooth at the nape of the neck.",
+                  "as_seen_in": "Formal styling, elegant appearances."
+              }
+          ],
+          "modifiers": {
+              "tightness": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard tension in hairstyle.",
+                      "as_seen_in": "Typical styling firmness."
+                  },
+                  {
+                      "name": "Tight",
+                      "visual": "Firmly secured with minimal looseness.",
+                      "as_seen_in": "Secure, polished styling."
+                  },
+                  {
+                      "name": "Medium",
+                      "visual": "Moderately secured with some movement.",
+                      "as_seen_in": "Balanced styling firmness."
+                  },
+                  {
+                      "name": "Loose",
+                      "visual": "Minimally secured with significant movement.",
+                      "as_seen_in": "Relaxed, flowing styling."
+                  }
+              ],
+              "neatness": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard neatness level.",
+                      "as_seen_in": "Typical styling tidiness."
+                  },
+                  {
+                      "name": "Sleek",
+                      "visual": "Extremely smooth with no stray hairs.",
+                      "as_seen_in": "Polished, refined styling."
+                  },
+                  {
+                      "name": "Tidy",
+                      "visual": "Well-maintained with minimal stray hairs.",
+                      "as_seen_in": "Neat, orderly styling."
+                  },
+                  {
+                      "name": "Casual",
+                      "visual": "Relaxed styling with some intentional messiness.",
+                      "as_seen_in": "Everyday, approachable styling."
+                  },
+                  {
+                      "name": "Messy",
+                      "visual": "Deliberately disheveled with artful disorder.",
+                      "as_seen_in": "Intentionally tousled styling."
+                  }
+              ],
+              "positioning": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard positioning on head.",
+                      "as_seen_in": "Typical style placement."
+                  },
+                  {
+                      "name": "Centered",
+                      "visual": "Placed along the central axis.",
+                      "as_seen_in": "Symmetrical style placement."
+                  },
+                  {
+                      "name": "Off-center",
+                      "visual": "Placed away from the central axis.",
+                      "as_seen_in": "Slightly asymmetrical style placement."
+                  },
+                  {
+                      "name": "Asymmetric",
+                      "visual": "Deliberately unbalanced placement.",
+                      "as_seen_in": "Dramatically uneven style placement."
+                  }
+              ],
+              "style_detail": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard styling technique.",
+                      "as_seen_in": "Typical style construction."
+                  },
+                  {
+                      "name": "Braided",
+                      "visual": "Woven with interlaced strands.",
+                      "as_seen_in": "Plaited style construction."
+                  },
+                  {
+                      "name": "Twisted",
+                      "visual": "Spiraled around itself.",
+                      "as_seen_in": "Coiled style construction."
+                  },
+                  {
+                      "name": "Coiled",
+                      "visual": "Wrapped in circular formation.",
+                      "as_seen_in": "Wrapped style construction."
+                  },
+                  {
+                      "name": "Textured",
+                      "visual": "Varied surface with deliberate irregularities.",
+                      "as_seen_in": "Multi-dimensional style construction."
+                  }
+              ]
+          }
+      }
+  ]
+}

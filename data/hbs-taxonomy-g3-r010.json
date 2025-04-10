@@ -1,0 +1,840 @@
+{
+  "group": "Facial Features",
+  "parameters": [
+      {
+          "id": 13,
+          "name": "Eyes",
+          "status": "Essential parameter",
+          "description": "Shape and positioning of eyes that significantly impact facial expression and character",
+          "options": [
+              {
+                  "name": "Almond",
+                  "visual": "Elongated oval shape with subtle tapering at corners.",
+                  "as_seen_in": "Classic beauty standards, balanced elegant eyes."
+              },
+              {
+                  "name": "Round",
+                  "visual": "Circular shape with open appearance and minimal corner angles.",
+                  "as_seen_in": "Youthful feminine features, certain anime-inspired looks."
+              },
+              {
+                  "name": "Hooded",
+                  "visual": "Partially covered by upper eyelid creating depth.",
+                  "as_seen_in": "Mature faces, certain ethnic characteristics."
+              },
+              {
+                  "name": "Monolid",
+                  "visual": "Smooth upper eyelid without visible crease.",
+                  "as_seen_in": "East Asian features, certain global populations."
+              },
+              {
+                  "name": "Cat-Eyes",
+                  "visual": "Distinctly upward angle at outer corners.",
+                  "as_seen_in": "Dramatic looks, editorial fashion."
+              },
+              {
+                  "name": "Deep-Set",
+                  "visual": "Positioned beneath prominent brow ridge creating shadow.",
+                  "as_seen_in": "Strong masculine features, intense expressions."
+              },
+              {
+                  "name": "Narrow",
+                  "visual": "Horizontally compressed with subtle opening.",
+                  "as_seen_in": "Strong expressions, focused appearances."
+              }
+          ],
+          "modifiers": {
+              "size": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard size of eyes relative to face.",
+                      "as_seen_in": "Typical eye proportions."
+                  },
+                  {
+                      "name": "Small",
+                      "visual": "Reduced size of eyes relative to face.",
+                      "as_seen_in": "Understated eye presence."
+                  },
+                  {
+                      "name": "Medium",
+                      "visual": "Balanced size of eyes relative to face.",
+                      "as_seen_in": "Average eye proportions."
+                  },
+                  {
+                      "name": "Large",
+                      "visual": "Increased size of eyes relative to face.",
+                      "as_seen_in": "Emphasized eye presence."
+                  }
+              ],
+              "shape_intensity": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard expression of eye shape characteristics.",
+                      "as_seen_in": "Typical manifestation of eye shape."
+                  },
+                  {
+                      "name": "Slightly",
+                      "visual": "Subtle expression of eye shape characteristics.",
+                      "as_seen_in": "Mild manifestation of eye shape."
+                  },
+                  {
+                      "name": "Distinctly",
+                      "visual": "Clear expression of eye shape characteristics.",
+                      "as_seen_in": "Definite manifestation of eye shape."
+                  },
+                  {
+                      "name": "Extremely",
+                      "visual": "Maximum expression of eye shape characteristics.",
+                      "as_seen_in": "Exaggerated manifestation of eye shape."
+                  }
+              ],
+              "opening": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard eyelid opening.",
+                      "as_seen_in": "Typical eye opening."
+                  },
+                  {
+                      "name": "Narrowly open",
+                      "visual": "Reduced space between eyelids.",
+                      "as_seen_in": "Subtle eye exposure."
+                  },
+                  {
+                      "name": "Moderately open",
+                      "visual": "Balanced space between eyelids.",
+                      "as_seen_in": "Average eye exposure."
+                  },
+                  {
+                      "name": "Widely open",
+                      "visual": "Maximum space between eyelids.",
+                      "as_seen_in": "Full eye exposure."
+                  }
+              ],
+              "angle": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Horizontal eye alignment.",
+                      "as_seen_in": "Neutral eye angle."
+                  },
+                  {
+                      "name": "Slightly downturned",
+                      "visual": "Subtle downward tilt of outer corners.",
+                      "as_seen_in": "Gentle downward eye angle."
+                  },
+                  {
+                      "name": "Moderately downturned",
+                      "visual": "Noticeable downward tilt of outer corners.",
+                      "as_seen_in": "Clear downward eye angle."
+                  },
+                  {
+                      "name": "Distinctly downturned",
+                      "visual": "Significant downward tilt of outer corners.",
+                      "as_seen_in": "Pronounced downward eye angle."
+                  },
+                  {
+                      "name": "Slightly upturned",
+                      "visual": "Subtle upward tilt of outer corners.",
+                      "as_seen_in": "Gentle upward eye angle."
+                  },
+                  {
+                      "name": "Moderately upturned",
+                      "visual": "Noticeable upward tilt of outer corners.",
+                      "as_seen_in": "Clear upward eye angle."
+                  },
+                  {
+                      "name": "Distinctly upturned",
+                      "visual": "Significant upward tilt of outer corners.",
+                      "as_seen_in": "Pronounced upward eye angle."
+                  }
+              ],
+              "position": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard distance between eyes.",
+                      "as_seen_in": "Typical eye spacing."
+                  },
+                  {
+                      "name": "Close-set",
+                      "visual": "Reduced distance between eyes.",
+                      "as_seen_in": "Narrower than average eye spacing."
+                  },
+                  {
+                      "name": "Wide-set",
+                      "visual": "Increased distance between eyes.",
+                      "as_seen_in": "Broader than average eye spacing."
+                  }
+              ]
+          }
+      },
+      {
+          "id": 14,
+          "name": "Eye Color",
+          "status": "Essential parameter",
+          "description": "Color of the iris that contributes to facial impact and character distinctiveness",
+          "options": [
+              {
+                  "name": "Brown",
+                  "visual": "Range from light amber to deep chocolate tones.",
+                  "as_seen_in": "Most common global eye color, approximately 70-80% of population."
+              },
+              {
+                  "name": "Blue",
+                  "visual": "Range from pale ice blue to deep navy tones.",
+                  "as_seen_in": "Approximately 8-10% of global population, more common in European heritage."
+              },
+              {
+                  "name": "Green",
+                  "visual": "Range from pale sage to deep emerald tones.",
+                  "as_seen_in": "Rarest natural eye color, approximately 2% of global population."
+              },
+              {
+                  "name": "Hazel",
+                  "visual": "Multi-tonal blend of brown and green with gold flecks.",
+                  "as_seen_in": "Approximately 5-8% of global population, varies with lighting conditions."
+              },
+              {
+                  "name": "Grey",
+                  "visual": "Range from light silver to deep slate tones.",
+                  "as_seen_in": "Approximately 3% of global population, often appears blue-tinged."
+              }
+          ],
+          "modifiers": {
+              "intensity": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard intensity of eye color.",
+                      "as_seen_in": "Typical expression of the selected color."
+                  },
+                  {
+                      "name": "Pale",
+                      "visual": "Lighter variation of eye color.",
+                      "as_seen_in": "Subtle expression of the selected color."
+                  },
+                  {
+                      "name": "Medium",
+                      "visual": "Balanced intensity of eye color.",
+                      "as_seen_in": "Average expression of the selected color."
+                  },
+                  {
+                      "name": "Deep",
+                      "visual": "Stronger variation of eye color.",
+                      "as_seen_in": "Vibrant expression of the selected color."
+                  }
+              ]
+          }
+      },
+      {
+          "id": 15,
+          "name": "Eyebrows",
+          "status": "Important but optional parameter",
+          "description": "Facial features that frame the eyes and significantly impact expression",
+          "options": [
+              {
+                  "name": "Arched",
+                  "visual": "Curved upward with highest point above outer third of eye.",
+                  "as_seen_in": "Classic feminine beauty standards, elegant expressions."
+              },
+              {
+                  "name": "Straight",
+                  "visual": "Minimal curve following horizontal line above eyes.",
+                  "as_seen_in": "Modern minimalist looks, certain East Asian features."
+              },
+              {
+                  "name": "Rounded",
+                  "visual": "Gentle curve with soft angles throughout.",
+                  "as_seen_in": "Youthful feminine appearances, approachable expressions."
+              },
+              {
+                  "name": "S-shaped",
+                  "visual": "Complex curve with multiple directional changes.",
+                  "as_seen_in": "Distinctive fashionable looks, unique facial features."
+              },
+              {
+                  "name": "Soft-angled",
+                  "visual": "Subtle angle with gentle transitions between segments.",
+                  "as_seen_in": "Balanced feminine features, natural elegant appearances."
+              },
+              {
+                  "name": "Flat",
+                  "visual": "Low-arch horizontal shape with subtle definition.",
+                  "as_seen_in": "Understated masculine features, certain ethnic characteristics."
+              },
+              {
+                  "name": "Angular",
+                  "visual": "Distinct change of direction creating visible corner.",
+                  "as_seen_in": "Striking masculine features, defined expressions."
+              },
+              {
+                  "name": "Slightly Arched",
+                  "visual": "Subtle upward curve with minimal height.",
+                  "as_seen_in": "Balanced masculine features, approachable expressions."
+              },
+              {
+                  "name": "Natural Line",
+                  "visual": "Following orbital bone with modest definition.",
+                  "as_seen_in": "Classic masculine faces, natural appearances."
+              }
+          ],
+          "modifiers": {
+              "shape_aesthetic": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard aesthetic quality of eyebrow shape.",
+                      "as_seen_in": "Typical expression of the selected shape."
+                  },
+                  {
+                      "name": "Elegant",
+                      "visual": "Refined and sophisticated eyebrow quality.",
+                      "as_seen_in": "Graceful, distinguished eyebrow appearance."
+                  },
+                  {
+                      "name": "Sculpted",
+                      "visual": "Precisely defined eyebrow quality.",
+                      "as_seen_in": "Carefully shaped, intentional eyebrow appearance."
+                  },
+                  {
+                      "name": "Natural",
+                      "visual": "Unaltered, organic eyebrow quality.",
+                      "as_seen_in": "Effortless, authentic eyebrow appearance."
+                  },
+                  {
+                      "name": "Bold",
+                      "visual": "Strong and confident eyebrow quality.",
+                      "as_seen_in": "Striking, powerful eyebrow appearance."
+                  },
+                  {
+                      "name": "Delicate",
+                      "visual": "Fine and subtle eyebrow quality.",
+                      "as_seen_in": "Gentle, understated eyebrow appearance."
+                  },
+                  {
+                      "name": "Structured",
+                      "visual": "Well-organized eyebrow quality.",
+                      "as_seen_in": "Deliberate, orderly eyebrow appearance."
+                  },
+                  {
+                      "name": "Expressive",
+                      "visual": "Emotionally communicative eyebrow quality.",
+                      "as_seen_in": "Animated, characterful eyebrow appearance."
+                  },
+                  {
+                      "name": "Refined",
+                      "visual": "Carefully finished eyebrow quality.",
+                      "as_seen_in": "Polished, meticulous eyebrow appearance."
+                  },
+                  {
+                      "name": "Dramatic",
+                      "visual": "Theatrical and intense eyebrow quality.",
+                      "as_seen_in": "Bold, attention-grabbing eyebrow appearance."
+                  },
+                  {
+                      "name": "Subtle",
+                      "visual": "Understated and restrained eyebrow quality.",
+                      "as_seen_in": "Minimalist, discrete eyebrow appearance."
+                  }
+              ],
+              "thickness": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard eyebrow thickness.",
+                      "as_seen_in": "Average eyebrow density."
+                  },
+                  {
+                      "name": "Thin",
+                      "visual": "Reduced eyebrow thickness.",
+                      "as_seen_in": "Sparse eyebrow density."
+                  },
+                  {
+                      "name": "Bushy",
+                      "visual": "Increased eyebrow thickness.",
+                      "as_seen_in": "Dense eyebrow growth."
+                  }
+              ],
+              "position": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard positioning above eyes.",
+                      "as_seen_in": "Typical eyebrow placement."
+                  },
+                  {
+                      "name": "High-set",
+                      "visual": "Positioned with increased space above eyes.",
+                      "as_seen_in": "Elevated eyebrow placement."
+                  },
+                  {
+                      "name": "Low-set",
+                      "visual": "Positioned with minimal space above eyes.",
+                      "as_seen_in": "Closer-to-eye eyebrow placement."
+                  }
+              ],
+              "styling": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard styling of eyebrow hairs.",
+                      "as_seen_in": "Typical eyebrow appearance."
+                  },
+                  {
+                      "name": "Tapered",
+                      "visual": "Gradually narrowing from inner to outer edges.",
+                      "as_seen_in": "Thinning eyebrow toward temple."
+                  },
+                  {
+                      "name": "Feathered",
+                      "visual": "Individual hairs visible creating textured appearance.",
+                      "as_seen_in": "Brushed-up, textured eyebrow styling."
+                  },
+                  {
+                      "name": "Groomed",
+                      "visual": "Clearly defined shape with precise edges.",
+                      "as_seen_in": "Professionally maintained eyebrows."
+                  },
+                  {
+                      "name": "Asymmetric",
+                      "visual": "Intentional or natural variation between sides.",
+                      "as_seen_in": "Different shapes between left and right eyebrows."
+                  }
+              ]
+          }
+      },
+      {
+          "id": 16,
+          "name": "Nose",
+          "status": "Essential parameter",
+          "description": "Central facial feature that significantly influences profile and frontal appearance",
+          "options": [
+              {
+                  "name": "Straight",
+                  "visual": "Even bridge line without curves or angles.",
+                  "as_seen_in": "Classical profiles, balanced facial features."
+              },
+              {
+                  "name": "Button",
+                  "visual": "Small rounded shape with slightly upturned tip.",
+                  "as_seen_in": "Youthful feminine appearances, certain idealized features."
+              },
+              {
+                  "name": "Celestial",
+                  "visual": "Gently curved bridge with upturned tip.",
+                  "as_seen_in": "Delicate feminine profiles, softer facial features."
+              },
+              {
+                  "name": "Roman",
+                  "visual": "Convex curve with refined proportions.",
+                  "as_seen_in": "Classical profiles, certain Mediterranean features."
+              },
+              {
+                  "name": "Nubian",
+                  "visual": "Low bridge with wider nostrils and distinct definition.",
+                  "as_seen_in": "Certain African and Middle Eastern features."
+              },
+              {
+                  "name": "Greek",
+                  "visual": "Straight bridge continuing line of forehead.",
+                  "as_seen_in": "Classical beauty standards, sculptural profiles."
+              },
+              {
+                  "name": "Aquiline",
+                  "visual": "Prominent convex curve creating \"eagle-like\" appearance.",
+                  "as_seen_in": "Strong masculine profiles, certain Mediterranean features."
+              },
+              {
+                  "name": "Hawk",
+                  "visual": "Pronounced convex curve with sharp downward angle at tip.",
+                  "as_seen_in": "Powerful masculine features, distinctive profiles."
+              },
+              {
+                  "name": "Bulbous",
+                  "visual": "Enlarged rounded tip with unique character.",
+                  "as_seen_in": "Distinctive masculine features, mature appearances."
+              },
+              {
+                  "name": "Snub",
+                  "visual": "Short with slightly upturned tip.",
+                  "as_seen_in": "Certain facial structures, approachable features."
+              }
+          ],
+          "modifiers": {
+              "nose_bridge": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard nose bridge characteristics.",
+                      "as_seen_in": "Typical bridge structure."
+                  },
+                  {
+                      "name": "Narrow-bridge",
+                      "visual": "Thin upper portion connecting to forehead.",
+                      "as_seen_in": "Slim bridge structure."
+                  },
+                  {
+                      "name": "Wide-base",
+                      "visual": "Broader lower portion where nostrils connect.",
+                      "as_seen_in": "Expanded lower nose structure."
+                  },
+                  {
+                      "name": "High-bridge",
+                      "visual": "Prominent elevation from facial plane.",
+                      "as_seen_in": "Projecting bridge structure."
+                  },
+                  {
+                      "name": "Low-bridge",
+                      "visual": "Minimal elevation from facial plane.",
+                      "as_seen_in": "Flat bridge structure."
+                  }
+              ],
+              "nostril": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard nostril characteristics.",
+                      "as_seen_in": "Typical nostril appearance."
+                  },
+                  {
+                      "name": "Flared-nostrils",
+                      "visual": "Expanded nostril width creating broader appearance.",
+                      "as_seen_in": "Wider nostril openings."
+                  },
+                  {
+                      "name": "Narrow-nostrils",
+                      "visual": "Compressed nostril width creating slender appearance.",
+                      "as_seen_in": "Thinner nostril openings."
+                  }
+              ],
+              "nose_tip": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard nose tip characteristics.",
+                      "as_seen_in": "Typical tip appearance."
+                  },
+                  {
+                      "name": "Rounded-tip",
+                      "visual": "Soft curved endpoint without angular features.",
+                      "as_seen_in": "Smooth, curved tip."
+                  },
+                  {
+                      "name": "Pointed-tip",
+                      "visual": "More defined endpoint with angular quality.",
+                      "as_seen_in": "Sharp, distinct tip."
+                  },
+                  {
+                      "name": "Upturned",
+                      "visual": "Tip angled upward from the base.",
+                      "as_seen_in": "Elevated tip orientation."
+                  }
+              ],
+              "nose_character": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard symmetry and straightness.",
+                      "as_seen_in": "Typical nose alignment."
+                  },
+                  {
+                      "name": "Asymmetric",
+                      "visual": "Natural variation between sides creating unique character.",
+                      "as_seen_in": "Uneven nose features."
+                  },
+                  {
+                      "name": "Deviated-septum",
+                      "visual": "Visible shift of center line creating distinctive appearance.",
+                      "as_seen_in": "Off-center nasal structure."
+                  }
+              ]
+          }
+      },
+      {
+          "id": 17,
+          "name": "Mouth and Lips",
+          "status": "Essential parameter",
+          "description": "Combined facial features defining the oral region that significantly impact expression, speech, and character appearance",
+          "options": [
+              {
+                  "name": "Petite Bow",
+                  "visual": "Small, delicately shaped mouth with defined cupid's bow and medium fullness.",
+                  "as_seen_in": "Classical feminine beauty standards, elegant facial features."
+              },
+              {
+                  "name": "Full Rounded",
+                  "visual": "Medium-sized mouth with plump, rounded lips and soft contours.",
+                  "as_seen_in": "Contemporary feminine beauty standards, youthful appearances."
+              },
+              {
+                  "name": "Wide Expressive",
+                  "visual": "Horizontally extended mouth with defined edges and moderate fullness.",
+                  "as_seen_in": "Distinctive feminine features, expressive faces, certain ethnicities."
+              },
+              {
+                  "name": "Thin Refined",
+                  "visual": "Precisely defined mouth with minimal vertical height and subtle definition.",
+                  "as_seen_in": "Certain elegant feminine features, mature or aristocratic appearances."
+              },
+              {
+                  "name": "Upturned Cherub",
+                  "visual": "Mouth with naturally lifted corners and softly rounded lips.",
+                  "as_seen_in": "Friendly feminine expressions, cheerful youthful appearances."
+              },
+              {
+                  "name": "Heart Shaped",
+                  "visual": "Pronounced cupid's bow with fuller center of upper lip tapering to corners.",
+                  "as_seen_in": "Romantic feminine ideals, stylized beauty standards."
+              },
+              {
+                  "name": "Balanced Defined",
+                  "visual": "Medium-sized mouth with clear contours and moderate thickness.",
+                  "as_seen_in": "Typical masculine facial proportions, balanced features."
+              },
+              {
+                  "name": "Bold Pronounced",
+                  "visual": "Substantial size with distinct edges and strong presence.",
+                  "as_seen_in": "Expressive masculine features, character actors."
+              },
+              {
+                  "name": "Wide Firm",
+                  "visual": "Horizontally extended with well-defined borders and minimal fullness.",
+                  "as_seen_in": "Distinctive masculine features, determined expressions."
+              },
+              {
+                  "name": "Thin Straight",
+                  "visual": "Minimal vertical height with precise linear appearance.",
+                  "as_seen_in": "Certain masculine archetypes, reserved or stern expressions."
+              },
+              {
+                  "name": "Strong Contoured",
+                  "visual": "Clearly defined borders with sculptural definition and moderate fullness.",
+                  "as_seen_in": "Classical masculine ideals, heroic character types."
+              },
+              {
+                  "name": "Full Natural",
+                  "visual": "Moderately full lips with softer definition and balanced proportions.",
+                  "as_seen_in": "Modern masculine beauty standards, approachable appearances."
+              },
+              {
+                  "name": "Distinguished Angular",
+                  "visual": "Sharp definition with distinct corners and character lines.",
+                  "as_seen_in": "Mature masculine features, distinctive profiles."
+              },
+              {
+                  "name": "Asymmetric Natural",
+                  "visual": "Subtle natural variation in lip fullness with unique character.",
+                  "as_seen_in": "Realistic faces, distinctive natural beauty."
+              }
+          ],
+          "modifiers": {
+              "expression": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Neutral mouth expression.",
+                      "as_seen_in": "Resting expression."
+                  },
+                  {
+                      "name": "Pleasant",
+                      "visual": "Slightly upturned corners with relaxed appearance.",
+                      "as_seen_in": "Subtly positive expression."
+                  },
+                  {
+                      "name": "Expressive",
+                      "visual": "Dynamic contours suggesting emotional communication.",
+                      "as_seen_in": "Animated expression."
+                  },
+                  {
+                      "name": "Serious",
+                      "visual": "Firmly set with minimal curvature.",
+                      "as_seen_in": "Formal expression."
+                  },
+                  {
+                      "name": "Neutral",
+                      "visual": "Perfectly balanced without emotional indicators.",
+                      "as_seen_in": "Impassive expression."
+                  },
+                  {
+                      "name": "Thoughtful",
+                      "visual": "Slightly compressed with subtle asymmetry.",
+                      "as_seen_in": "Contemplative expression."
+                  },
+                  {
+                      "name": "Relaxed",
+                      "visual": "Softly parted with natural ease.",
+                      "as_seen_in": "Casual expression."
+                  }
+              ],
+              "fullness": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard lip volume.",
+                      "as_seen_in": "Average lip fullness."
+                  },
+                  {
+                      "name": "Full",
+                      "visual": "Increased lip volume.",
+                      "as_seen_in": "Plump lips."
+                  },
+                  {
+                      "name": "Thin",
+                      "visual": "Reduced lip volume.",
+                      "as_seen_in": "Narrow lips."
+                  }
+              ],
+              "detail": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard lip characteristics.",
+                      "as_seen_in": "Typical lip features."
+                  },
+                  {
+                      "name": "Full Upper Lip",
+                      "visual": "More prominence in the top lip relative to lower.",
+                      "as_seen_in": "Top-heavy lip balance."
+                  },
+                  {
+                      "name": "Full Lower Lip",
+                      "visual": "More prominence in the bottom lip relative to upper.",
+                      "as_seen_in": "Bottom-heavy lip balance."
+                  },
+                  {
+                      "name": "Defined Philtrum",
+                      "visual": "Distinct vertical groove between nose and upper lip.",
+                      "as_seen_in": "Clear central lip divot."
+                  },
+                  {
+                      "name": "Upturned Corners",
+                      "visual": "Mouth edges that naturally angle upward.",
+                      "as_seen_in": "Subtle smile appearance."
+                  },
+                  {
+                      "name": "Downturned Corners",
+                      "visual": "Mouth edges that naturally angle downward.",
+                      "as_seen_in": "Subtle frown appearance."
+                  },
+                  {
+                      "name": "Defined Vermillion Border",
+                      "visual": "Clear, sharp edge between lips and surrounding skin.",
+                      "as_seen_in": "Precise lip outline."
+                  }
+              ]
+          }
+      },
+      {
+          "id": 18,
+          "name": "Facial Hair",
+          "status": "Optional parameter (gender and age-dependent)",
+          "description": "Presence and style of hair growth on the face",
+          "options": [
+              {
+                  "name": "Clean Shaven",
+                  "visual": "No visible facial hair, smooth skin appearance.",
+                  "as_seen_in": "Many professional environments, certain cultural preferences."
+              },
+              {
+                  "name": "Light Stubble",
+                  "visual": "Short, even growth showing hair follicles without significant length.",
+                  "as_seen_in": "\"Five o'clock shadow,\" early beard growth."
+              },
+              {
+                  "name": "Heavy Stubble",
+                  "visual": "Prominent short facial hair creating textured appearance.",
+                  "as_seen_in": "\"Designer stubble,\" 3-7 days of growth."
+              },
+              {
+                  "name": "Mustache",
+                  "visual": "Hair growth specifically above the upper lip.",
+                  "as_seen_in": "Various styles from thin to full."
+              },
+              {
+                  "name": "Goatee",
+                  "visual": "Hair on chin and mustache with shaved cheeks.",
+                  "as_seen_in": "Contemporary professional environments, artistic communities."
+              },
+              {
+                  "name": "Short Beard",
+                  "visual": "Full facial hair kept trimmed close to the face.",
+                  "as_seen_in": "Modern professional settings, contemporary fashion."
+              },
+              {
+                  "name": "Full Beard",
+                  "visual": "Complete facial hair coverage with moderate length.",
+                  "as_seen_in": "Traditional styles, contemporary fashion trends."
+              },
+              {
+                  "name": "Long Beard",
+                  "visual": "Extended facial hair growth past the chin.",
+                  "as_seen_in": "Certain religious traditions, specific subcultures."
+              }
+          ],
+          "modifiers": {
+              "density": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard density of facial hair.",
+                      "as_seen_in": "Average facial hair growth."
+                  },
+                  {
+                      "name": "Sparse",
+                      "visual": "Reduced density revealing skin beneath.",
+                      "as_seen_in": "Patchy facial hair growth."
+                  },
+                  {
+                      "name": "Medium",
+                      "visual": "Moderate density with even coverage.",
+                      "as_seen_in": "Regular facial hair growth."
+                  },
+                  {
+                      "name": "Dense",
+                      "visual": "High density with minimal skin visibility.",
+                      "as_seen_in": "Thick facial hair growth."
+                  },
+                  {
+                      "name": "Full",
+                      "visual": "Maximum density with complete coverage.",
+                      "as_seen_in": "Exceptionally thick facial hair growth."
+                  }
+              ],
+              "grooming": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard grooming level.",
+                      "as_seen_in": "Typical maintenance."
+                  },
+                  {
+                      "name": "Neatly trimmed",
+                      "visual": "Precisely maintained with clear edges.",
+                      "as_seen_in": "Professional styling."
+                  },
+                  {
+                      "name": "Well-groomed",
+                      "visual": "Clean and maintained but less precise.",
+                      "as_seen_in": "Regular maintenance."
+                  },
+                  {
+                      "name": "Slightly unkempt",
+                      "visual": "Minimal maintenance with natural growth patterns.",
+                      "as_seen_in": "Casual styling."
+                  },
+                  {
+                      "name": "Rugged",
+                      "visual": "Intentionally untamed with character.",
+                      "as_seen_in": "Wilderness aesthetic."
+                  }
+              ],
+              "style": [
+                  {
+                      "name": "None (default)",
+                      "visual": "Standard styling approach.",
+                      "as_seen_in": "Conventional appearance."
+                  },
+                  {
+                      "name": "Classic",
+                      "visual": "Timeless and traditional styling.",
+                      "as_seen_in": "Historical continuity."
+                  },
+                  {
+                      "name": "Modern",
+                      "visual": "Contemporary and current styling.",
+                      "as_seen_in": "Fashion-forward appearance."
+                  },
+                  {
+                      "name": "Traditional",
+                      "visual": "Culture-specific historical styling.",
+                      "as_seen_in": "Heritage-oriented appearance."
+                  }
+              ]
+          }
+      }
+  ]
+}

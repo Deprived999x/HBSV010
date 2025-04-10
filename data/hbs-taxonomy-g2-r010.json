@@ -1,0 +1,614 @@
+{
+    "group": "Head & Face Structure",
+    "parameters": [
+      {
+        "id": 8,
+        "name": "Head Shape",
+        "status": "Essential parameter",
+        "description": "Overall cranial structure that forms the foundation of facial appearance",
+        "options": [
+          {
+            "name": "Oval",
+            "visual": "Slightly elongated curved form with balanced proportions.",
+            "as_seen_in": "Classical artistic representations, considered universally balanced."
+          },
+          {
+            "name": "Round",
+            "visual": "Circular shape with equal width and height, softer angles.",
+            "as_seen_in": "Certain East Asian populations, youthful appearances."
+          },
+          {
+            "name": "Square",
+            "visual": "Angular with similar width at forehead and jaw, strong lines.",
+            "as_seen_in": "Classic masculine ideal, strong-featured individuals."
+          },
+          {
+            "name": "Rectangular",
+            "visual": "Elongated square shape with vertical emphasis.",
+            "as_seen_in": "Certain European populations, longer facial structures."
+          },
+          {
+            "name": "Heart",
+            "visual": "Wider at forehead tapering to a narrower chin point.",
+            "as_seen_in": "Classic feminine ideal, certain youthful faces."
+          },
+          {
+            "name": "Diamond",
+            "visual": "Narrow forehead widening at cheekbones then tapering to chin.",
+            "as_seen_in": "Fashion models, distinctive angular appearances."
+          },
+          {
+            "name": "Triangle",
+            "visual": "Narrow forehead widening significantly at jawline.",
+            "as_seen_in": "Certain body types, faces with prominent lower features."
+          },
+          {
+            "name": "Inverted-Triangle",
+            "visual": "Wide forehead narrowing significantly toward chin.",
+            "as_seen_in": "Certain athletic builds, faces with prominent upper features."
+          },
+          {
+            "name": "Long",
+            "visual": "Vertically extended with narrow proportions throughout.",
+            "as_seen_in": "Certain European and African populations."
+          },
+          {
+            "name": "Baseball",
+            "visual": "Shortened oval with slight angularity at sides.",
+            "as_seen_in": "Certain East Asian and Native American populations."
+          }
+        ],
+        "modifiers": {
+          "alignment": [
+            {
+              "name": "None (default)",
+              "visual": "Standard alignment of the head shape.",
+              "as_seen_in": "Typical expression of the selected shape."
+            },
+            {
+              "name": "Slightly",
+              "visual": "Mild expression of the head shape characteristics.",
+              "as_seen_in": "Subtle manifestation of the shape."
+            },
+            {
+              "name": "Classically",
+              "visual": "Archetypal expression of the head shape characteristics.",
+              "as_seen_in": "Textbook example of the shape."
+            },
+            {
+              "name": "Perfectly",
+              "visual": "Ideal expression of the head shape characteristics.",
+              "as_seen_in": "Flawless manifestation of the shape."
+            }
+          ],
+          "definition": [
+            {
+              "name": "None (default)",
+              "visual": "Standard definition of head shape contours.",
+              "as_seen_in": "Typical delineation of head shape."
+            },
+            {
+              "name": "Softly",
+              "visual": "Gentle transitions between head shape contours.",
+              "as_seen_in": "Subtle delineation of head shape."
+            },
+            {
+              "name": "Moderately",
+              "visual": "Clear but not pronounced head shape contours.",
+              "as_seen_in": "Balanced delineation of head shape."
+            },
+            {
+              "name": "Sharply",
+              "visual": "Distinct and pronounced head shape contours.",
+              "as_seen_in": "Strong delineation of head shape."
+            }
+          ],
+          "prominence": [
+            {
+              "name": "None (default)",
+              "visual": "Standard prominence of head shape characteristics.",
+              "as_seen_in": "Typical manifestation of head shape."
+            },
+            {
+              "name": "Subtle",
+              "visual": "Minimal expression of distinctive head shape features.",
+              "as_seen_in": "Understated head shape characteristics."
+            },
+            {
+              "name": "Pronounced",
+              "visual": "Strong expression of distinctive head shape features.",
+              "as_seen_in": "Emphasized head shape characteristics."
+            }
+          ]
+        }
+      },
+      {
+        "id": 9,
+        "name": "Face Shape",
+        "status": "Essential parameter",
+        "description": "Distinctive facial contour that defines overall appearance",
+        "options": [
+          {
+            "name": "Oval",
+            "visual": "Slightly elongated curved form with balanced proportions.",
+            "as_seen_in": "Considered universally flattering, many fashion models."
+          },
+          {
+            "name": "Round",
+            "visual": "Full cheeks with soft angles and similar width/height.",
+            "as_seen_in": "Youthful appearances, certain East Asian populations."
+          },
+          {
+            "name": "Square",
+            "visual": "Strong jawline creating angular corners at similar width to forehead.",
+            "as_seen_in": "Strong-featured individuals, certain masculine ideals."
+          },
+          {
+            "name": "Rectangular",
+            "visual": "Elongated with angular jaw and similar width at forehead/jawline.",
+            "as_seen_in": "Longer facial structures, certain European populations."
+          },
+          {
+            "name": "Heart",
+            "visual": "Wide forehead and cheekbones tapering to a pointed chin.",
+            "as_seen_in": "Classic feminine ideal, faces with prominent cheekbones."
+          },
+          {
+            "name": "Diamond",
+            "visual": "Narrow forehead and jawline with prominent cheekbones.",
+            "as_seen_in": "High-fashion models, distinctive angular appearances."
+          },
+          {
+            "name": "Triangle",
+            "visual": "Narrow forehead with wide jawline creating bottom-heavy appearance.",
+            "as_seen_in": "Faces with prominent jaw structures."
+          },
+          {
+            "name": "Inverted-Triangle",
+            "visual": "Wide forehead tapering significantly to narrow chin.",
+            "as_seen_in": "Faces with prominent upper features."
+          },
+          {
+            "name": "Long",
+            "visual": "Vertically extended with narrow proportions throughout.",
+            "as_seen_in": "Certain European and African populations."
+          },
+          {
+            "name": "Baseball",
+            "visual": "Shortened oval with slight angularity at sides.",
+            "as_seen_in": "Certain East Asian and Native American populations."
+          }
+        ],
+        "modifiers": {
+          "alignment": [
+            {
+              "name": "None (default)",
+              "visual": "Standard alignment of the face shape.",
+              "as_seen_in": "Typical expression of the selected shape."
+            },
+            {
+              "name": "Slightly",
+              "visual": "Mild expression of the face shape characteristics.",
+              "as_seen_in": "Subtle manifestation of the shape."
+            },
+            {
+              "name": "Classically",
+              "visual": "Archetypal expression of the face shape characteristics.",
+              "as_seen_in": "Textbook example of the shape."
+            },
+            {
+              "name": "Perfectly",
+              "visual": "Ideal expression of the face shape characteristics.",
+              "as_seen_in": "Flawless manifestation of the shape."
+            }
+          ],
+          "definition": [
+            {
+              "name": "None (default)",
+              "visual": "Standard definition of face shape contours.",
+              "as_seen_in": "Typical delineation of face shape."
+            },
+            {
+              "name": "Softly",
+              "visual": "Gentle transitions between face shape contours.",
+              "as_seen_in": "Subtle delineation of face shape."
+            },
+            {
+              "name": "Moderately",
+              "visual": "Clear but not pronounced face shape contours.",
+              "as_seen_in": "Balanced delineation of face shape."
+            },
+            {
+              "name": "Sharply",
+              "visual": "Distinct and pronounced face shape contours.",
+              "as_seen_in": "Strong delineation of face shape."
+            }
+          ],
+          "prominence": [
+            {
+              "name": "None (default)",
+              "visual": "Standard prominence of face shape characteristics.",
+              "as_seen_in": "Typical manifestation of face shape."
+            },
+            {
+              "name": "Subtle",
+              "visual": "Minimal expression of distinctive face shape features.",
+              "as_seen_in": "Understated face shape characteristics."
+            },
+            {
+              "name": "Pronounced",
+              "visual": "Strong expression of distinctive face shape features.",
+              "as_seen_in": "Emphasized face shape characteristics."
+            }
+          ]
+        }
+      },
+      {
+        "id": 10,
+        "name": "Forehead",
+        "status": "Important but optional parameter",
+        "description": "Upper facial feature that frames the face and influences overall proportions",
+        "options": [
+          {
+            "name": "Smooth High",
+            "visual": "Vertically extended with even surface and minimal texture.",
+            "as_seen_in": "Classical feminine beauty, balanced facial proportions."
+          },
+          {
+            "name": "Gentle Rounded",
+            "visual": "Soft curved surface with harmonious transitions.",
+            "as_seen_in": "Youthful feminine appearances, softer facial features."
+          },
+          {
+            "name": "Delicate Flat",
+            "visual": "Minimal protrusion with refined even surface.",
+            "as_seen_in": "Certain East Asian feminine features, elegant proportions."
+          },
+          {
+            "name": "Feminine Slope",
+            "visual": "Subtle backward incline from brow to hairline.",
+            "as_seen_in": "Classical female profiles, graceful facial angles."
+          },
+          {
+            "name": "Vertical Balanced",
+            "visual": "Perpendicular angle to facial plane with smooth texture.",
+            "as_seen_in": "Symmetrical feminine features, modern beauty standards."
+          },
+          {
+            "name": "Pronounced High-and-Wide",
+            "visual": "Vertically extended with significant horizontal span.",
+            "as_seen_in": "Classical masculine representations, strong features."
+          },
+          {
+            "name": "Rugged Receding",
+            "visual": "Noticeable backward slope from brow line toward hairline.",
+            "as_seen_in": "Mature masculine features, distinctive male profiles."
+          },
+          {
+            "name": "Bossed Prominent",
+            "visual": "Forward projection with distinct prominence above brows.",
+            "as_seen_in": "Strong-featured males, powerful masculine appearances."
+          },
+          {
+            "name": "Strong Flat",
+            "visual": "Minimal slope with substantial surface area.",
+            "as_seen_in": "Certain masculine ethnic features, balanced strong features."
+          },
+          {
+            "name": "Brow-Heavy",
+            "visual": "Developed ridge above eyes creating shadow effect.",
+            "as_seen_in": "Traditional masculine features, powerful expressions."
+          },
+          {
+            "name": "Angled Structural",
+            "visual": "Distinct planes creating architectural appearance.",
+            "as_seen_in": "Defined male features, sculptural facial structures."
+          }
+        ],
+        "modifiers": {
+          "height": [
+            {
+              "name": "None (default)",
+              "visual": "Standard height of forehead.",
+              "as_seen_in": "Typical forehead height."
+            },
+            {
+              "name": "Low",
+              "visual": "Reduced vertical space between brows and hairline.",
+              "as_seen_in": "Minimal forehead height."
+            },
+            {
+              "name": "Medium",
+              "visual": "Moderate vertical space between brows and hairline.",
+              "as_seen_in": "Average forehead height."
+            },
+            {
+              "name": "High",
+              "visual": "Extended vertical space between brows and hairline.",
+              "as_seen_in": "Substantial forehead height."
+            }
+          ],
+          "width": [
+            {
+              "name": "None (default)",
+              "visual": "Standard width of forehead.",
+              "as_seen_in": "Typical forehead width."
+            },
+            {
+              "name": "Narrow",
+              "visual": "Reduced horizontal span of forehead.",
+              "as_seen_in": "Minimal forehead width."
+            },
+            {
+              "name": "Average",
+              "visual": "Moderate horizontal span of forehead.",
+              "as_seen_in": "Standard forehead width."
+            },
+            {
+              "name": "Wide",
+              "visual": "Extended horizontal span of forehead.",
+              "as_seen_in": "Substantial forehead width."
+            }
+          ]
+        }
+      },
+      {
+        "id": 11,
+        "name": "Jawline",
+        "status": "Important but optional parameter",
+        "description": "Lower facial structure that defines face shape and contributes to overall character",
+        "options": [
+          {
+            "name": "Soft Oval",
+            "visual": "Gently curved with smooth transitions and minimal angles.",
+            "as_seen_in": "Classical feminine features, balanced facial structures."
+          },
+          {
+            "name": "Delicate Round",
+            "visual": "Soft curves without distinct angles, subtle definition.",
+            "as_seen_in": "Youthful feminine appearances, softer facial features."
+          },
+          {
+            "name": "Tapered Heart",
+            "visual": "Rounded with a gentle point at the chin.",
+            "as_seen_in": "Traditional feminine beauty standards, certain models."
+          },
+          {
+            "name": "Subtle Defined",
+            "visual": "Noticeable but not prominent jawline with soft angles.",
+            "as_seen_in": "Athletic female features, fashion models."
+          },
+          {
+            "name": "Graceful Wide",
+            "visual": "Broader jawline maintaining feminine softness.",
+            "as_seen_in": "Strong-featured women, certain ethnic characteristics."
+          },
+          {
+            "name": "Elegant Pointed",
+            "visual": "Refined tapering to a noticeable chin point.",
+            "as_seen_in": "High fashion models, distinctive feminine profiles."
+          },
+          {
+            "name": "Strong Square",
+            "visual": "Pronounced angular lines with defined corners.",
+            "as_seen_in": "Classic masculine jawlines, action figures."
+          },
+          {
+            "name": "Bold Mandibular",
+            "visual": "Prominent horizontal emphasis with distinct angle.",
+            "as_seen_in": "Masculine ideals, strong facial structures."
+          },
+          {
+            "name": "Chiseled Defined",
+            "visual": "Sharp delineation with noticeable angularity.",
+            "as_seen_in": "Athletic male features, defined masculine profiles."
+          },
+          {
+            "name": "Broad Wide",
+            "visual": "Extended lateral spread creating prominent lower face.",
+            "as_seen_in": "Strong masculine features, powerful appearances."
+          },
+          {
+            "name": "Rugged Round",
+            "visual": "Fuller jawline with moderate definition.",
+            "as_seen_in": "Natural masculine features, less angular profiles."
+          },
+          {
+            "name": "Subtle Receding",
+            "visual": "Less pronounced jawline with gradual transition to neck.",
+            "as_seen_in": "Certain male facial structures, intellectual appearances."
+          }
+        ],
+        "modifiers": {
+          "definition": [
+            {
+              "name": "None (default)",
+              "visual": "Standard definition of jawline contours.",
+              "as_seen_in": "Typical delineation of jawline."
+            },
+            {
+              "name": "Softly defined",
+              "visual": "Gentle transitions along jawline contours.",
+              "as_seen_in": "Subtle delineation of jawline."
+            },
+            {
+              "name": "Moderately defined",
+              "visual": "Clear but not pronounced jawline contours.",
+              "as_seen_in": "Balanced delineation of jawline."
+            },
+            {
+              "name": "Sharply defined",
+              "visual": "Distinct and pronounced jawline contours.",
+              "as_seen_in": "Strong delineation of jawline."
+            }
+          ],
+          "prominence": [
+            {
+              "name": "None (default)",
+              "visual": "Standard prominence of jawline.",
+              "as_seen_in": "Typical projection of jawline."
+            },
+            {
+              "name": "Subtle",
+              "visual": "Minimal projection of jawline from neck.",
+              "as_seen_in": "Understated jawline prominence."
+            },
+            {
+              "name": "Pronounced",
+              "visual": "Significant projection of jawline from neck.",
+              "as_seen_in": "Emphasized jawline prominence."
+            }
+          ],
+          "angle": [
+            {
+              "name": "None (default)",
+              "visual": "Standard angularity of jawline.",
+              "as_seen_in": "Typical jawline angles."
+            },
+            {
+              "name": "Gently angled",
+              "visual": "Soft transitions at jawline corners.",
+              "as_seen_in": "Subtle jawline angles."
+            },
+            {
+              "name": "Strongly angled",
+              "visual": "Sharp transitions at jawline corners.",
+              "as_seen_in": "Pronounced jawline angles."
+            }
+          ]
+        }
+      },
+      {
+        "id": 12,
+        "name": "Cheekbones",
+        "status": "Important but optional parameter",
+        "description": "Facial bone structure that influences facial width and light dynamics",
+        "options": [
+          {
+            "name": "High-and-Prominent",
+            "visual": "Elevated position with noticeable projection.",
+            "as_seen_in": "Fashion models, distinctive feminine features."
+          },
+          {
+            "name": "Softly-Rounded",
+            "visual": "Gentle curves with smooth transitions and subtle definition.",
+            "as_seen_in": "Youthful appearances, classical feminine faces."
+          },
+          {
+            "name": "Delicate-Features",
+            "visual": "Refined structure with elegant contours.",
+            "as_seen_in": "Feminine beauty standards, subtle facial structures."
+          },
+          {
+            "name": "Balanced-Asymmetry",
+            "visual": "Naturally varied prominence between sides creating character.",
+            "as_seen_in": "Unique feminine faces, natural beauty standards."
+          },
+          {
+            "name": "Dramatic-Contour",
+            "visual": "Strongly defined with notable light-catching properties.",
+            "as_seen_in": "Editorial models, striking feminine features."
+          },
+          {
+            "name": "Natural-Flow",
+            "visual": "Harmoniously integrated with other facial features.",
+            "as_seen_in": "Balanced feminine faces, approachable appearances."
+          },
+          {
+            "name": "Angular-Definition",
+            "visual": "Distinct planes with structural emphasis.",
+            "as_seen_in": "Masculine facial structures, defined features."
+          },
+          {
+            "name": "Wide-and-Strong",
+            "visual": "Broad structure creating facial width.",
+            "as_seen_in": "Powerful masculine appearances, strong features."
+          },
+          {
+            "name": "Sculpted-Look",
+            "visual": "Clearly defined with dramatic shadows.",
+            "as_seen_in": "Chiseled masculine features, heroic imagery."
+          },
+          {
+            "name": "Flat-Profile",
+            "visual": "Minimal projection with subtle definition.",
+            "as_seen_in": "Certain ethnic features, understated appearances."
+          },
+          {
+            "name": "Weathered-Character",
+            "visual": "Distinctive definition with maturity markers.",
+            "as_seen_in": "Experienced faces, character actors."
+          },
+          {
+            "name": "Pronounced-Structure",
+            "visual": "Highly visible bone structure influencing overall appearance.",
+            "as_seen_in": "Strong masculine features, distinctive profiles."
+          }
+        ],
+        "modifiers": {
+          "height": [
+            {
+              "name": "None (default)",
+              "visual": "Standard vertical position of cheekbones.",
+              "as_seen_in": "Typical cheekbone placement."
+            },
+            {
+              "name": "Low",
+              "visual": "Positioned closer to mouth level.",
+              "as_seen_in": "Lower facial emphasis."
+            },
+            {
+              "name": "Medium",
+              "visual": "Positioned at middle of face.",
+              "as_seen_in": "Balanced facial proportions."
+            },
+            {
+              "name": "High",
+              "visual": "Positioned closer to eye level.",
+              "as_seen_in": "Upper facial emphasis."
+            }
+          ],
+          "prominence": [
+            {
+              "name": "None (default)",
+              "visual": "Standard projection of cheekbones.",
+              "as_seen_in": "Typical cheekbone prominence."
+            },
+            {
+              "name": "Subtle",
+              "visual": "Minimal projection from facial plane.",
+              "as_seen_in": "Understated cheekbone visibility."
+            },
+            {
+              "name": "Moderate",
+              "visual": "Clear but not extreme projection.",
+              "as_seen_in": "Balanced cheekbone prominence."
+            },
+            {
+              "name": "Pronounced",
+              "visual": "Significant projection from facial plane.",
+              "as_seen_in": "Emphasized cheekbone structure."
+            }
+          ],
+          "definition": [
+            {
+              "name": "None (default)",
+              "visual": "Standard definition of cheekbone contours.",
+              "as_seen_in": "Typical delineation of cheekbones."
+            },
+            {
+              "name": "Softly defined",
+              "visual": "Gentle transitions along cheekbone contours.",
+              "as_seen_in": "Subtle delineation of cheekbones."
+            },
+            {
+              "name": "Sharply defined",
+              "visual": "Clear delineation with distinct edges.",
+              "as_seen_in": "Pronounced delineation of cheekbones."
+            }
+          ]
+        }
+      }
+    ]
+  }
+  
