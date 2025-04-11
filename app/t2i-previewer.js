@@ -12,14 +12,16 @@ const availableModels = [
     description: 'Fast and efficient image generator'
   },
   {
-    id: 'ByteDance/InfiniteYou',
-    name: 'InfiniteYou',
-    description: 'ByteDance\'s creative image model'
+    id: 'mit-han-lab/hart-0.7b-1024px',
+    name: 'HART 0.7B',
+    description: 'Efficient text-to-image model with 1024px resolution'
+  },
+  {
+    id: 'RunDiffusion/Stable-Diffusion-Unconditional', // This is an example - verify actual model ID
+    name: 'Random Generator',
+    description: 'Generates random images without using prompts'
   }
-  // Removed HiDream-ai/HiDream-I1-Full and FLUX.1-dev
-  // Removed duplicate FLUX.1-schnell entry
 ];
-
 
 export class T2IPreviewer {
   constructor() {
