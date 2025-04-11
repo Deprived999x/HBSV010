@@ -184,10 +184,14 @@
             width: 100px;
         }
         
-        /* Fix: More precise selector to target "As Seen In" text content only */
-        .option-description div:nth-child(2) span.description-label + span,
-        .option-description div:nth-child(2) span.description-label + div {
+        /* Fix: Target the actual content structure for "As Seen In" text */
+        .option-description div:nth-child(2) {
             font-weight: bold;
+        }
+        
+        /* Keep the label itself not bold by overriding */
+        .option-description div:nth-child(2) .description-label {
+            font-weight: bold; /* Keep the label bold as it should be */
         }
 
         .edit-button {
