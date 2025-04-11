@@ -12,26 +12,12 @@ const availableModels = [
     description: 'Fast and efficient image generator'
   },
   {
-    id: 'HiDream-ai/HiDream-I1-Full', // Add HiDream
-    name: 'HiDream I1 Full',
-    description: 'High-quality generation model by HiDream'
-  },
-   {
-    id: 'black-forest-labs/FLUX.1-dev', // Add FLUX Dev
-    name: 'FLUX.1 Dev',
-    description: 'Development version of the FLUX model'
-  },
-  // Add other models if your proxy is configured to handle them
-  // {
-  //   id: 'HiDream-ai/HiDream-I1-Full',
-  //   name: 'HiDream I1 Full',
-  //   description: 'High-quality image generation model'
-  // },
-  // {
-  //   id: 'ByteDance/InfiniteYou',
-  //   name: 'InfiniteYou',
-  //   description: 'ByteDance\'s creative image model'
-  // }
+    id: 'ByteDance/InfiniteYou',
+    name: 'InfiniteYou',
+    description: 'ByteDance\'s creative image model'
+  }
+  // Removed HiDream-ai/HiDream-I1-Full and FLUX.1-dev
+  // Removed duplicate FLUX.1-schnell entry
 ];
 
 
@@ -55,6 +41,7 @@ export class T2IPreviewer {
     this.imageDisplay = null;
     this.placeholder = null;
     this.modelDescription = null;
+    this.openImageButton = null;
   }
 
   init(containerElement) {
@@ -92,6 +79,9 @@ export class T2IPreviewer {
         <div id="t2i-placeholder" class="t2i-placeholder">
           <div>Generate a T2I prompt first</div>
         </div>
+        <button id="t2i-open-image" class="t2i-button" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: none; z-index: 3;">
+          Open in New Window
+        </button>
       </div>
       <div id="t2i-proxy-warning" class="github-pages-note" style="display: none; margin-top: 10px; font-size: 12px;">
          <strong>Note:</strong> Image generation relies on a proxy service. Ensure it's configured and running.
@@ -128,11 +118,48 @@ export class T2IPreviewer {
     this.placeholder = this.container.querySelector('#t2i-placeholder');
     this.modelDescription = this.container.querySelector('#model-description');
     this.proxyWarning = this.container.querySelector('#t2i-proxy-warning');
+    this.openImageButton = this.container.querySelector('#t2i-open-image');
 
     // Event listeners
     if (this.generateButton) {
       this.generateButton.addEventListener('click', () => this.triggerGeneration());
     }
+    
+    // Add event listener for the open image button
+    if (this.openImageButton) {
+      this.openImageButton.addEventListener('click', () => {
+        if (this.imageData) {
+          // Open the image in a new centered window
+          const width = 512; // Standard width for the new window
+          const height = 512; // Standard height for the new window
+          const left = (window.screen.width - width) / 2;
+          const top = (window.screen.height - height) / 2;
+          const newWindow = window.open('', '_blank', `width=${width},height=${height},left=${left},top=${top}`);
+          
+          if (newWindow) {
+            newWindow.document.write(`
+              <!DOCTYPE html>
+              <html>
+              <head>
+                <title>Generated Image</title>
+                <style>
+                  body { margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #2c2c2c; }
+                  img { max-width: 100%; max-height: 100%; object-fit: contain; }
+                </style>
+              </head>
+              <body>
+                <img src="${this.imageData}" alt="Generated Image">
+              </body>
+              </html>
+            `);
+            newWindow.document.close();
+          } else {
+            alert("Popup blocker may have prevented opening the image. Please allow popups for this site.");
+          }
+        }
+      });
+    }
+    
     if (this.modelSelect) {
       this.modelSelect.addEventListener('change', (e) => {
         this.selectedModelIndex = parseInt(e.target.value);
@@ -324,10 +351,20 @@ export class T2IPreviewer {
             this.imageDisplay.src = this.imageData;
             this.imageDisplay.style.display = 'block';
             this.placeholder.style.display = 'none';
+            
+            // Show the open image button when we have an image
+            if (this.openImageButton) {
+                this.openImageButton.style.display = 'block';
+            }
         } else {
             this.imageDisplay.src = '';
             this.imageDisplay.style.display = 'none';
             this.placeholder.style.display = 'flex'; // Show placeholder
+            
+            // Hide the open image button when no image is available
+            if (this.openImageButton) {
+                this.openImageButton.style.display = 'none';
+            }
 
             // Customize placeholder text
             if (this.isGenerating) {
