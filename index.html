@@ -184,6 +184,12 @@
             width: 100px;
         }
         
+        /* Fix: Bold the text content that follows "As Seen In", not the label itself */
+        .option-description div:nth-child(2) span.description-label + span,
+        .option-description div:nth-child(2) span.description-label + div {
+            font-weight: bold;
+        }
+
         .edit-button {
             background-color: #f39c12;
             color: white;
@@ -596,6 +602,44 @@
         .notification.show {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Add these styles for the T2I Previewer error states */
+        .t2i-error {
+            padding: 15px;
+            background-color: #fff0f0;
+            border: 1px solid #ffcaca;
+            border-radius: 4px;
+            color: #e74c3c;
+        }
+        
+        .t2i-error ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .t2i-error .t2i-prompt-used {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        
+        .t2i-loading {
+            padding: 20px;
+            text-align: center;
+            color: #777;
+        }
+        
+        .t2i-no-prompt {
+            padding: 20px;
+            text-align: center;
+            color: #777;
+            font-style: italic;
         }
     </style>
 </head>
